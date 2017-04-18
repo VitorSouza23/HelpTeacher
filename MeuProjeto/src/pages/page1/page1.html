@@ -1,18 +1,24 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Menu Principal</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Menu Principal</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Bem vindo ao HelpTeacher</h3>
+    <h3>Bem vindo ao HelpTeacher!</h3>
 
-  <p>
-    Em breve novas atualizações...
-  </p>
+    <ion-card>
+        <ion-card-header>
+            Olá Profesor(a)!
+        </ion-card-header>
+        <ion-card-content>
+            <p>Nome: {{professor.nome}}</p>
+            <p>Atuação: {{professor.atuacao}}</p>
+        </ion-card-content>
+    </ion-card>
 
-  <button ion-button>Em breve!</button>
+    <button ion-button>Gerenciar Turma</button>
 </ion-content>
