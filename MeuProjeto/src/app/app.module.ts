@@ -3,12 +3,14 @@ import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {MyApp} from './app.component';
 import {PaginaPrincipal} from '../pages/paginaPrincipal/paginaPrincipal';
 import {Configuracoes} from '../pages/configuracoes/configuracoes';
+import {TurmasPage} from '../pages/turmas/turmas'
 
 @NgModule({
     declarations: [
         MyApp,
         PaginaPrincipal,
-        Configuracoes
+        Configuracoes,
+        TurmasPage
     ],
     imports: [
         IonicModule.forRoot(MyApp)
@@ -17,7 +19,8 @@ import {Configuracoes} from '../pages/configuracoes/configuracoes';
     entryComponents: [
         MyApp,
         PaginaPrincipal,
-        Configuracoes
+        Configuracoes,
+        TurmasPage
     ],
     providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

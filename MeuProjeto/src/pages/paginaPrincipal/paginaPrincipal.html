@@ -15,12 +15,12 @@
             Olá Profesor(a)!
         </ion-card-header>
         <ion-card-content>
-            <p>Nome: {{professor.nome}}</p>
-            <p>Atuação: {{professor.areaDeAtuacao}}</p>
-            <p>Escola: {{professor.escola}}</p>
+            <p>Nome: {{professor.getNome()}}</p>
+            <p>Atuação: {{professor.getAreaDeAtuacao()}}</p>
+            <p>Escola: {{professor.getEscola()}}</p>
         </ion-card-content>
     </ion-card>
 
-    <button ion-button round full>Gerenciar Turma</button>
+    <button ion-button round full (click)="goToTurmasPage()">Gerenciar Turma</button>
     <button ion-button color="secondary" round full>Cirar Atividade</button>
 </ion-content>

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {GerenciadorProfessor} from '../../providers/gerenciador-professor'
+import {TurmasPage} from '../turmas/turmas'
 import {NavController} from 'ionic-angular';
 
 
@@ -14,4 +15,7 @@ export class PaginaPrincipal {
         this.professor = gerenciadorProfessor.novoProfessor('Andréa','Ensino Fundamental','E.M.E.B Professor Trajno');
     }
 
+    goToTurmasPage(){
+        this.navCtrl.push(TurmasPage);
+    }
 }
