@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {GerenciadorTurma} from '../../providers/gerenciador-turma'
 import {Turma} from '../../class/Turma'
+import {CriarTurmaPage} from '../../pages/criar-turma/criar-turma'
 /*
   Generated class for the Turmas page.
 
@@ -11,7 +12,6 @@ import {Turma} from '../../class/Turma'
 @Component({
     selector: 'page-turmas',
     templateUrl: 'turmas.html',
-    providers: [GerenciadorTurma]
 })
 export class TurmasPage {
     private listaTurmas: Turma[];
@@ -23,4 +23,11 @@ export class TurmasPage {
         console.log('ionViewDidLoad TurmasPage');
     }
 
+    goToCriarTurma(){
+        this.navCtrl.push(CriarTurmaPage);
+    }
+    
+    verTurma(){
+        console.log(this.gerenciadorDeTurma.getTurmas());
+    }
 }

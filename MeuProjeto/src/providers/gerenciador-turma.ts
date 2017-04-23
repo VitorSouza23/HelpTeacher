@@ -13,39 +13,43 @@ import 'rxjs/add/operator/map';
 export class GerenciadorTurma {
     private turmas: Turma[];
     constructor() {
-
+        this.turmas = [];
     }
-    
-    public getTurmas(){
+
+    public getTurmas() {
         return this.turmas;
     }
-    
-    public setTurmas(turmas: Turma[]){
+
+    public setTurmas(turmas: Turma[]) {
         this.turmas = turmas;
     }
-    
-    novaTurma(nome: String){
-        this.turmas.push(new Turma(nome));
+
+    addTurma(turma: Turma) {
+        this.turmas.push(turma);
     }
-    
-    addAluno(turma: Turma, aluno: Aluno){
+
+    addAluno(turma: Turma, aluno: Aluno) {
         let index = this.turmas.indexOf(turma);
         this.turmas[index].addAluno(aluno);
     }
-    
-    removeAluno(turma: Turma, aluno: Aluno){
+
+    removeAluno(turma: Turma, aluno: Aluno) {
         let index = this.turmas.indexOf(turma);
         this.turmas[index].removeAluno(aluno);
     }
-    
-    updateAluno(turma: Turma, novoAluno: Aluno, indexAluno: number){
+
+    updateAluno(turma: Turma, novoAluno: Aluno, indexAluno: number) {
         let index = this.turmas.indexOf(turma);
         this.turmas[index].upadateAluno(indexAluno, novoAluno);
     }
-    
-    getAluno(turma: Turma, indexAluno: number){
+
+    getAluno(turma: Turma, indexAluno: number) {
         let index = this.turmas.indexOf(turma);
         return this.turmas[index].getAluno(indexAluno);
     }
-    
+
+    getTurma(index: number) {
+        return this.turmas[index];
+    }
+
 }

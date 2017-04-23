@@ -25,12 +25,13 @@
             </button>
         </ion-list>
     </ion-card>
+    <button (click)="verTurma()">ver turma</button>
     <ion-fab right bottom>
         <button ion-fab color="secondary">
             <ion-icon name="md-apps"></ion-icon>
         </button>
         <ion-fab-list side="top">
-            <button ion-fab><ion-icon name="md-add-circle"></ion-icon></button>
+            <button ion-fab (click)="goToCriarTurma()"><ion-icon name="md-add-circle"></ion-icon></button>
             <button ion-fab><ion-icon name="md-backspace"></ion-icon></button>
             <button ion-fab><ion-icon name="md-shuffle"></ion-icon></button>
         </ion-fab-list>
