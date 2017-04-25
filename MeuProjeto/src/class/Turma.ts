@@ -8,11 +8,12 @@ import {Aluno} from '../class/Aluno'
 
 export class Turma extends DAOInterface{
     private nome: String;
-    private alulos: Aluno[];
+    private alunos: Aluno[];
 
     constructor(nome: String) {
         super();
         this.setNome(nome);
+        this.alunos = [];
     }
     
     public getNome() {
@@ -24,28 +25,28 @@ export class Turma extends DAOInterface{
     }
 
     public getAlunos() {
-        return this.alulos;
+        return this.alunos;
     }
 
     public setAlunos(alunos: Aluno[]) {
-        this.alulos = alunos;
+        this.alunos = alunos;
     }
 
     public addAluno(aluno: Aluno) {
-        this.alulos.push(aluno);
+        this.alunos.push(aluno);
     }
 
     public removeAluno(aluno: Aluno) {
-        let index: number = this.alulos.indexOf(aluno);
-        this.alulos.splice(index, 1);
+        let index: number = this.alunos.indexOf(aluno);
+        this.alunos.splice(index, 1);
     }
 
     public upadateAluno(index: number, novoAluno: Aluno) {
-        this.alulos[index] = novoAluno;
+        this.alunos[index] = novoAluno;
     }
 
     public getAluno(index: number) {
-        return this.alulos[index];
+        return this.alunos[index];
     }
 
 }

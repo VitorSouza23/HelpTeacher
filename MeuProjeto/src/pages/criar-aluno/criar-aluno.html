@@ -21,14 +21,14 @@
         <ion-list>
             <ion-item>
                 <ion-label floating>Nome:</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input type="text" [(ngModel)]="nome"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label floating>Idade:</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input type="text" [(ngModel)]="idade"></ion-input>
             </ion-item>
         </ion-list>
     </ion-card>
-    <button ion-button round full>Confirmar</button>
+    <button ion-button round full (click)="criarAluno()">Confirmar</button>
     <button ion-button round full color="danger">Cancelar</button>
 </ion-content>

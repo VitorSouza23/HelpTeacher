@@ -15,11 +15,10 @@ import {GerenciadorTurma} from '../../providers/gerenciador-turma'
     templateUrl: 'criar-turma.html'
 })
 export class CriarTurmaPage {
-    private listaAlunos: Aluno[];
     private turma: Turma;
     private nome: String;
     constructor(public navCtrl: NavController, public navParams: NavParams, public gerneciadorDeTurma: GerenciadorTurma) {
-        this.turma = this.navParams.get('turma')
+        this.turma = new Turma("");
     }
 
     ionViewDidLoad() {
@@ -27,11 +26,13 @@ export class CriarTurmaPage {
     }
 
     goToCriarAluno(){
-        this.navCtrl.push(CriarAlunoPage);
+        this.navCtrl.push(CriarAlunoPage, {
+            turma: this.turma
+        });
     }
     
     confirmar(){
-        this.turma = new Turma(this.nome);
+        this.turma.setNome(this.nome);
         this.gerneciadorDeTurma.addTurma(this.turma);
         this.navCtrl.pop();
     }

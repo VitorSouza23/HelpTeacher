@@ -23,29 +23,29 @@ export class GerenciadorTurma {
     public setTurmas(turmas: Turma[]) {
         this.turmas = turmas;
     }
+    
+    setAlunos(turma: Turma, alunos: Aluno[]){
+        turma.setAlunos(alunos);
+    }
 
     addTurma(turma: Turma) {
         this.turmas.push(turma);
     }
 
     addAluno(turma: Turma, aluno: Aluno) {
-        let index = this.turmas.indexOf(turma);
-        this.turmas[index].addAluno(aluno);
+        turma.addAluno(aluno);
     }
 
     removeAluno(turma: Turma, aluno: Aluno) {
-        let index = this.turmas.indexOf(turma);
-        this.turmas[index].removeAluno(aluno);
+        turma.removeAluno(aluno);
     }
 
     updateAluno(turma: Turma, novoAluno: Aluno, indexAluno: number) {
-        let index = this.turmas.indexOf(turma);
-        this.turmas[index].upadateAluno(indexAluno, novoAluno);
+        turma.upadateAluno(indexAluno, novoAluno);
     }
 
     getAluno(turma: Turma, indexAluno: number) {
-        let index = this.turmas.indexOf(turma);
-        return this.turmas[index].getAluno(indexAluno);
+        return turma.getAluno(indexAluno);
     }
 
     getTurma(index: number) {

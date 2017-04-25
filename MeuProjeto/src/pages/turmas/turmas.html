@@ -16,7 +16,14 @@
 <ion-content padding>
     <ion-card>
         <ion-card-header>
-            Turmas Atuais
+            <ion-item >
+                <h2>Turmas Atuais</h2>
+                <button ion-button color="secondary" round item-right icon-left (click)="goToCriarTurma()">
+                        <ion-icon name="md-add-circle"></ion-icon>
+                    Adicionar
+                </button>
+            </ion-item>
+
         </ion-card-header>
         <ion-list>
             <button ion-item *ngFor="let turma of listaTurmas">
@@ -25,7 +32,6 @@
             </button>
         </ion-list>
     </ion-card>
-    <button (click)="verTurma()">ver turma</button>
     <ion-fab right bottom>
         <button ion-fab color="secondary">
             <ion-icon name="md-apps"></ion-icon>
