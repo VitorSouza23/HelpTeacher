@@ -1,7 +1,7 @@
 import {NgModule, ErrorHandler} from '@angular/core';
 import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {MyApp} from './app.component';
-import {PaginaPrincipal} from '../pages/paginaPrincipal/paginaPrincipal';
+import {PaginaPrincipal} from '../pages/pagina-principal/pagina-principal';
 import {Configuracoes} from '../pages/configuracoes/configuracoes';
 import {TurmasPage} from '../pages/turmas/turmas';
 import {CriarTurmaPage} from '../pages/criar-turma/criar-turma';

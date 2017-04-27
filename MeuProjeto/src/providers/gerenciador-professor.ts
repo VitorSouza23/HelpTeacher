@@ -9,14 +9,11 @@ import {Professor} from '../class/Professor'
 */
 @Injectable()
 export class GerenciadorProfessor {
-    professor: Professor;
+    private professor: Professor;
     constructor() {
-
+        this.professor = new Professor('Andréa','Ensino Fundamental','E.M.E.B Professor Trajno');
     }
-    novoProfessor(nome: String, arearDeAtuacao: String, escola: String) {
-        this.professor = new Professor(nome, arearDeAtuacao, escola);
-        return this.professor;
-    }
+  
 
     getProfessor() {
         return this.professor;

@@ -19,7 +19,7 @@
             Informações da Turma
         </ion-card-header>
         <ion-list>
-            <ion-item>
+            <ion-item class="input-values">
                 <ion-label floating>Nome da Turma:</ion-label>
                 <ion-input type="text" [(ngModel)]="nome"></ion-input>
             </ion-item>
@@ -28,7 +28,7 @@
 
     <ion-card>
         <ion-card-header>
-            <ion-item>
+            <ion-item class="header-button">
                 <h2>Alunos</h2>
                 <button ion-button color="secondary" round item-right icon-left (click)="goToCriarAluno()">
                         <ion-icon name="md-add-circle"></ion-icon>
@@ -37,7 +37,7 @@
             </ion-item>
         </ion-card-header>
         <ion-list>
-            <button ion-item *ngFor="let aluno of turma.getAlunos()">
+            <button ion-item class="item-list" *ngFor="let aluno of turma.getAlunos()" >
                     <ion-icon name="md-contacts" item-left></ion-icon>
                 {{aluno.getNome()}}
             </button>

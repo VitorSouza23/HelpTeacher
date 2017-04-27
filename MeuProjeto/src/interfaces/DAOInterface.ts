@@ -6,7 +6,7 @@
 export class DAOInterface {
     private _id: any;
     constructor() {
-
+        this._id = {};
     }
 
     public setID(id: any) {

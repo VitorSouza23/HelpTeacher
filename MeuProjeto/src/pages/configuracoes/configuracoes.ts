@@ -1,38 +1,41 @@
-import { Component } from '@angular/core';
-
-import { NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, NavParams, ToastController} from 'ionic-angular';
+import {GerenciadorProfessor} from '../../providers/gerenciador-professor';
+import {Professor} from '../../class/Professor'
 
 @Component({
-  selector: 'page-page2',
-  templateUrl: 'configuracoes.html'
+    selector: 'page-configuracoes',
+    templateUrl: 'configuracoes.html'
 })
 export class Configuracoes {
-  selectedItem: any;
-  icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+    private professor: Professor;
+    private nome: String;
+    private areaDeAtuacao: String;
+    private escola: String;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
-
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
-
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
+    constructor(public navCtrl: NavController, public navParams: NavParams, public gerenciadorProfessor: GerenciadorProfessor,
+        public toastCtrl: ToastController) {
+        this.professor = gerenciadorProfessor.getProfessor();
+        this.nome = this.professor.getNome();
+        this.areaDeAtuacao = this.professor.getAreaDeAtuacao();
+        this.escola = this.professor.getEscola();
     }
-  }
 
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-      this.navCtrl.push(Configuracoes, {
-      item: item
-    });
-  }
+    confirmar() {
+        this.professor.setNome(this.nome);
+        this.professor.setAreaDeAtuacao(this.areaDeAtuacao);
+        this.professor.setEscola(this.escola);
+        this.gerenciadorProfessor.setProfessor(this.professor);
+        this.mostrarMensagemDeConfrimacao();
+    }
+
+    private mostrarMensagemDeConfrimacao() {
+        this.toastCtrl.create({
+            message: 'Dados atualizados com sucesso!',
+            duration: 3000,
+            position: 'middle',
+            showCloseButton: true,
+            closeButtonText: 'fechar'
+        }).present();
+    }
 }

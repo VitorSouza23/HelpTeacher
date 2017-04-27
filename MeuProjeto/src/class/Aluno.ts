@@ -4,15 +4,18 @@
  * and open the template in the editor.
  */
 import {DAOInterface} from '../interfaces/DAOInterface'
- 
+import {Nota} from '../class/Nota'
+
 export class Aluno extends DAOInterface{
     private nome: String;
     private idade: number;
-    private notas: number[];
+    private notas: Nota[];
+    
     constructor(nome: String, idade: number) {
         super();
-        this.setNome(nome)
-        this.setIdade(idade)
+        this.setNome(nome);
+        this.setIdade(idade);
+        this.notas = [];
     }
 
     public getNome() {
@@ -35,11 +38,11 @@ export class Aluno extends DAOInterface{
         return this.notas;
     }
 
-    public setNotas(notas: number[]) {
+    public setNotas(notas: Nota[]) {
         this.notas = notas;
     }
 
-    adicionarNota(nota: number) {
+    adicionarNota(nota: Nota) {
         this.notas.push(nota);
     }
 
@@ -49,12 +52,12 @@ export class Aluno extends DAOInterface{
 
     calcularMedia() {
         let soma: number = 0;
-        this.notas.forEach((nota) => soma = soma + nota);
+        this.notas.forEach((nota) => soma = soma + nota.getValor());
         let media: number = soma / this.notas.length;
         return Math.round(media);
     }
 
-    alterarNota(index: number, novaNota: number) {
+    alterarNota(index: number, novaNota: Nota) {
         this.notas[index] = novaNota;
     }
 

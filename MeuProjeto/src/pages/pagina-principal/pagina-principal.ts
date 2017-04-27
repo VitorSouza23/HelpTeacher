@@ -1,18 +1,19 @@
 import {Component} from '@angular/core';
-import {GerenciadorProfessor} from '../../providers/gerenciador-professor'
+import {GerenciadorProfessor} from '../../providers/gerenciador-professor';
 import {TurmasPage} from '../turmas/turmas'
 import {NavController} from 'ionic-angular';
+import {Professor} from '../../class/Professor';
 
 
 @Component({
-    selector: 'page-page1',
-    templateUrl: 'paginaPrincipal.html',
-    providers: [GerenciadorProfessor]
+    selector: 'page-principal',
+    templateUrl: 'pagina-principal.html'
 })
 export class PaginaPrincipal {
-   professor: any;
+   private professor: Professor;
+
     constructor(public navCtrl: NavController, public gerenciadorProfessor: GerenciadorProfessor) {
-        this.professor = gerenciadorProfessor.novoProfessor('Andréa','Ensino Fundamental','E.M.E.B Professor Trajno');
+        this.professor = gerenciadorProfessor.getProfessor();
     }
 
     goToTurmasPage(){
