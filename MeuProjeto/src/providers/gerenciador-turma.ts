@@ -51,5 +51,9 @@ export class GerenciadorTurma {
     getTurma(index: number) {
         return this.turmas[index];
     }
+    
+    getIndexAluno(turma: Turma,aluno: Aluno){
+        return turma.getAlunos().indexOf(aluno);
+    }
 
 }

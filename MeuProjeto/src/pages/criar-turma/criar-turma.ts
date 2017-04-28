@@ -3,7 +3,9 @@ import {NavController, NavParams} from 'ionic-angular';
 import {Turma} from '../../class/Turma'
 import {Aluno} from '../../class/Aluno';
 import {CriarAlunoPage} from '../criar-aluno/criar-aluno';
-import {GerenciadorTurma} from '../../providers/gerenciador-turma'
+import {GerenciadorTurma} from '../../providers/gerenciador-turma';
+import {AlterarAlunoPage} from '../alterar-aluno/alterar-aluno';
+import {RemoverAlunosPage} from '../remover-alunos/remover-alunos'
 /*
   Generated class for the CriarTurma page.
 
@@ -16,9 +18,11 @@ import {GerenciadorTurma} from '../../providers/gerenciador-turma'
 })
 export class CriarTurmaPage {
     private turma: Turma;
-    private nome: String;
+    private nome: String
+    private turno: String;
+
     constructor(public navCtrl: NavController, public navParams: NavParams, public gerneciadorDeTurma: GerenciadorTurma) {
-        this.turma = new Turma("");
+        this.turma = new Turma("", "");
     }
 
     ionViewDidLoad() {
@@ -31,8 +35,22 @@ export class CriarTurmaPage {
         });
     }
     
+    goToAlterarAluno(aluno: Aluno){
+        this.navCtrl.push(AlterarAlunoPage, {
+            turma: this.turma,
+            aluno: aluno
+        })
+    }
+    
+    goToRemoverAlunos(){
+        this.navCtrl.push(RemoverAlunosPage, {
+            turma: this.turma
+        })
+    }
+    
     confirmar(){
         this.turma.setNome(this.nome);
+        this.turma.setTurno(this.turno);
         this.gerneciadorDeTurma.addTurma(this.turma);
         this.navCtrl.pop();
     }

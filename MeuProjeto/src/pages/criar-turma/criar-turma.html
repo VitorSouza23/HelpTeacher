@@ -23,6 +23,15 @@
                 <ion-label floating>Nome da Turma:</ion-label>
                 <ion-input type="text" [(ngModel)]="nome"></ion-input>
             </ion-item>
+            <ion-item class="ion-select-lable">
+                <ion-label>Trurno</ion-label>
+                <ion-select [(ngModel)]="turno">
+                    <ion-option value="Matutino">Matutino</ion-option>
+                    <ion-option value="Vespertino">Vespertino</ion-option>
+                    <ion-option value="Noturno">Noturno</ion-option>
+                    <ion-option value="Integral">Integral</ion-option>
+                </ion-select>
+            </ion-item>
         </ion-list>
     </ion-card>
 
@@ -30,15 +39,15 @@
         <ion-card-header>
             <ion-item class="header-button">
                 <h2>Alunos</h2>
-                <button ion-button color="secondary" round item-right icon-left (click)="goToCriarAluno()">
+                <button ion-button color="primary" round item-right icon-left (click)="goToCriarAluno()">
                         <ion-icon name="md-add-circle"></ion-icon>
                     Adicionar
                 </button>
             </ion-item>
         </ion-card-header>
         <ion-list>
-            <button ion-item class="item-list" *ngFor="let aluno of turma.getAlunos()" >
-                    <ion-icon name="md-contacts" item-left></ion-icon>
+            <button ion-item class="item-list" *ngFor="let aluno of turma.getAlunos()" (click)="goToAlterarAluno(aluno)">
+                <ion-icon name="md-contacts" item-left></ion-icon>
                 {{aluno.getNome()}}
             </button>
         </ion-list>
@@ -53,7 +62,7 @@
         </button>
         <ion-fab-list side="top">
             <button ion-fab (click)="goToCriarAluno()"><ion-icon name="md-add-circle"></ion-icon></button>
-            <button ion-fab><ion-icon name="md-backspace"></ion-icon></button>
+            <button ion-fab (click)="goToRemoverAlunos()"><ion-icon name="md-backspace"></ion-icon></button>
             <button ion-fab><ion-icon name="md-shuffle"></ion-icon></button>
         </ion-fab-list>
     </ion-fab>

@@ -8,44 +8,54 @@ import {Aluno} from '../class/Aluno'
 
 export class Turma extends DAOInterface{
     private nome: String;
+    private turno: String;
     private alunos: Aluno[];
 
-    constructor(nome: String) {
+    constructor(nome: String, turno: String) {
         super();
         this.setNome(nome);
         this.alunos = [];
+        this.turno = turno;
     }
     
-    public getNome() {
+    getNome() {
         return this.nome;
     }
 
-    public setNome(nome: String) {
+    setNome(nome: String) {
         this.nome = nome;
     }
+    
+    getTurno(){
+        return this.turno;
+    }
+    
+    setTurno(turno: String){
+        this.turno = turno;
+    }
 
-    public getAlunos() {
+    getAlunos() {
         return this.alunos;
     }
 
-    public setAlunos(alunos: Aluno[]) {
+    setAlunos(alunos: Aluno[]) {
         this.alunos = alunos;
     }
 
-    public addAluno(aluno: Aluno) {
+    addAluno(aluno: Aluno) {
         this.alunos.push(aluno);
     }
 
-    public removeAluno(aluno: Aluno) {
+    removeAluno(aluno: Aluno) {
         let index: number = this.alunos.indexOf(aluno);
         this.alunos.splice(index, 1);
     }
 
-    public upadateAluno(index: number, novoAluno: Aluno) {
+    upadateAluno(index: number, novoAluno: Aluno) {
         this.alunos[index] = novoAluno;
     }
 
-    public getAluno(index: number) {
+    getAluno(index: number) {
         return this.alunos[index];
     }
 

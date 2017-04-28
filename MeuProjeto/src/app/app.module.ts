@@ -8,6 +8,8 @@ import {CriarTurmaPage} from '../pages/criar-turma/criar-turma';
 import {CriarAlunoPage} from '../pages/criar-aluno/criar-aluno';
 import {GerenciadorTurma} from '../providers/gerenciador-turma';
 import {GerenciadorProfessor} from '../providers/gerenciador-professor';
+import {AlterarAlunoPage} from '../pages/alterar-aluno/alterar-aluno';
+import {RemoverAlunosPage} from '../pages/remover-alunos/remover-alunos';
 
 @NgModule({
     declarations: [
@@ -16,7 +18,9 @@ import {GerenciadorProfessor} from '../providers/gerenciador-professor';
         Configuracoes,
         TurmasPage,
         CriarTurmaPage,
-        CriarAlunoPage
+        CriarAlunoPage,
+        AlterarAlunoPage,
+        RemoverAlunosPage
     ],
     imports: [
         IonicModule.forRoot(MyApp)
@@ -28,7 +32,9 @@ import {GerenciadorProfessor} from '../providers/gerenciador-professor';
         Configuracoes,
         TurmasPage,
         CriarTurmaPage,
-        CriarAlunoPage
+        CriarAlunoPage,
+        AlterarAlunoPage,
+        RemoverAlunosPage
     ],
     providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, GerenciadorTurma, GerenciadorProfessor]
 })
