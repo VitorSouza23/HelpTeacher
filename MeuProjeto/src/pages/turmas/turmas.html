@@ -26,20 +26,20 @@
 
         </ion-card-header>
         <ion-list>
-            <button ion-item *ngFor="let turma of listaTurmas">
-                    <ion-icon name="md-contacts" item-left></ion-icon>
+            <button ion-item class="item-list" *ngFor="let turma of listaTurmas" (click)="goToAlterarTurma(turma)">
+                    <ion-icon name="md-people" item-left></ion-icon>
                 {{turma.getNome()}}
             </button>
         </ion-list>
     </ion-card>
     <ion-fab right bottom>
         <button ion-fab color="secondary">
-            <ion-icon name="md-apps"></ion-icon>
+            <ion-icon name="md-people"></ion-icon>
         </button>
         <ion-fab-list side="top">
-            <button ion-fab (click)="goToCriarTurma()"><ion-icon name="md-add-circle"></ion-icon></button>
-            <button ion-fab><ion-icon name="md-backspace"></ion-icon></button>
-            <button ion-fab><ion-icon name="md-shuffle"></ion-icon></button>
+            <button ion-fab color="secondary"(click)="goToCriarTurma()"><ion-icon name="md-add-circle"></ion-icon></button>
+            <button ion-fab color="danger" (click)="goToRemoverTurmas()"><ion-icon name="md-backspace"></ion-icon></button>
+            <button ion-fab color="dark" (click)="ordenarAlfabeticamenteTurmas()"><ion-icon name="md-shuffle"></ion-icon></button>
         </ion-fab-list>
     </ion-fab>
 </ion-content>

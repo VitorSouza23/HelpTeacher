@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Turma} from '../class/Turma';
 import {Aluno} from '../class/Aluno';
+import {FerramentaListaInterface} from '../interfaces/FerramentasListaInterface'
 import 'rxjs/add/operator/map';
 
 /*
@@ -10,7 +11,7 @@ import 'rxjs/add/operator/map';
   for more info on providers and Angular 2 DI.
 */
 @Injectable()
-export class GerenciadorTurma {
+export class GerenciadorTurma implements FerramentaListaInterface{
     private turmas: Turma[];
     constructor() {
         this.turmas = [];
@@ -24,6 +25,7 @@ export class GerenciadorTurma {
         this.turmas = turmas;
     }
     
+    
     setAlunos(turma: Turma, alunos: Aluno[]){
         turma.setAlunos(alunos);
     }
@@ -31,9 +33,19 @@ export class GerenciadorTurma {
     addTurma(turma: Turma) {
         this.turmas.push(turma);
     }
+    
+    updateTurma(novaTurma: Turma, indexTurmaAntiga: number){
+        this.turmas[indexTurmaAntiga] = novaTurma;
+    }
+    
+    removeTurma(turma: Turma){
+        let index: number = this.turmas.indexOf(turma);
+        this.turmas.splice(index, 1);
+    }
 
     addAluno(turma: Turma, aluno: Aluno) {
         turma.addAluno(aluno);
+        turma.ordernarAlfabeticamenteCrescente();
     }
 
     removeAluno(turma: Turma, aluno: Aluno) {
@@ -55,5 +67,14 @@ export class GerenciadorTurma {
     getIndexAluno(turma: Turma,aluno: Aluno){
         return turma.getAlunos().indexOf(aluno);
     }
-
+    
+    getIndexTurma(turma:Turma){
+        return this.turmas.indexOf(turma);
+    }
+    
+    ordernarAlfabeticamenteCrescente(){
+        this.turmas.sort((t1, t2) => {
+            return t1.getNome() > t2.getNome()? 1:-1;
+        })
+    }
 }
