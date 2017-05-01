@@ -21,7 +21,7 @@ export class Configuracoes {
         this.escola = this.professor.getEscola();
     }
 
-    confirmar() {
+    confirmar(): void {
         this.professor.setNome(this.nome);
         this.professor.setAreaDeAtuacao(this.areaDeAtuacao);
         this.professor.setEscola(this.escola);
@@ -29,7 +29,7 @@ export class Configuracoes {
         this.mostrarMensagemDeConfrimacao();
     }
 
-    private mostrarMensagemDeConfrimacao() {
+    private mostrarMensagemDeConfrimacao(): void {
         this.toastCtrl.create({
             message: 'Dados atualizados com sucesso!',
             duration: 3000,

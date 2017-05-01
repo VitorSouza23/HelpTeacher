@@ -17,27 +17,27 @@ export class Professor extends DAOInterface {
         this.setEscola(escola);
     }
 
-    public getNome() {
+    public getNome(): String {
         return this.nome;
     }
 
-    public setNome(nome: String) {
+    public setNome(nome: String): void {
         this.nome = nome;
     }
 
-    public getAreaDeAtuacao() {
+    public getAreaDeAtuacao(): String {
         return this.areaDeAtuacao;
     }
 
-    public setAreaDeAtuacao(areaDeAtuacao: String) {
+    public setAreaDeAtuacao(areaDeAtuacao: String): void {
         this.areaDeAtuacao = areaDeAtuacao;
     }
 
-    public getEscola() {
+    public getEscola(): String {
         return this.escola;
     }
 
-    public setEscola(escola: String) {
+    public setEscola(escola: String): void {
         this.escola = escola;
     }
 }

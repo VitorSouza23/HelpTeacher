@@ -19,48 +19,48 @@ export class Turma extends DAOInterface implements FerramentaListaInterface{
         this.turno = turno;
     }
     
-    getNome() {
+    getNome(): String {
         return this.nome;
     }
 
-    setNome(nome: String) {
+    setNome(nome: String): void {
         this.nome = nome;
     }
     
-    getTurno(){
+    getTurno(): String{
         return this.turno;
     }
     
-    setTurno(turno: String){
+    setTurno(turno: String): void{
         this.turno = turno;
     }
 
-    getAlunos() {
+    getAlunos(): Aluno[] {
         return this.alunos;
     }
 
-    setAlunos(alunos: Aluno[]) {
+    setAlunos(alunos: Aluno[]): void {
         this.alunos = alunos;
     }
 
-    addAluno(aluno: Aluno) {
+    addAluno(aluno: Aluno): void {
         this.alunos.push(aluno);
     }
 
-    removeAluno(aluno: Aluno) {
+    removeAluno(aluno: Aluno): void {
         let index: number = this.alunos.indexOf(aluno);
         this.alunos.splice(index, 1);
     }
 
-    upadateAluno(index: number, novoAluno: Aluno) {
+    upadateAluno(index: number, novoAluno: Aluno): void {
         this.alunos[index] = novoAluno;
     }
 
-    getAluno(index: number) {
+    getAluno(index: number): Aluno {
         return this.alunos[index];
     }
 
-    ordernarAlfabeticamenteCrescente(){
+    ordernarAlfabeticamenteCrescente(): void{
         this.alunos.sort((a1,a2) => {
             return a1.getNome() > a2.getNome()? 1 : -1;
         });

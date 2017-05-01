@@ -26,7 +26,7 @@ export class AlterarAlunoPage {
          this.idade = this.aluno.getIdade();
     }
     
-    alterarAluno(){
+    alterarAluno(): void{
         let index = this.gerenciadorTurmas.getIndexAluno(this.turma, this.aluno);
         this.aluno.setNome(this.nome);
         this.aluno.setIdade(this.idade);
@@ -34,11 +34,11 @@ export class AlterarAlunoPage {
         this.navCtrl.pop();
     }
     
-    cancelar(){
+    cancelar(): void{
         this.navCtrl.pop();
     }
 
-    ionViewDidLoad() {
+    ionViewDidLoad(): void {
         console.log('ionViewDidLoad AlterarAlunoPage');
     }
 

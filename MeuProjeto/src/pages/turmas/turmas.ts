@@ -5,6 +5,7 @@ import {Turma} from '../../class/Turma';
 import {CriarTurmaPage} from '../../pages/criar-turma/criar-turma';
 import {AlterarTurmaPage} from '../alterar-turma/alterar-turma';
 import {RemoverTurmasPage} from '../remover-turmas/remover-turmas';
+import {BDService} from '../../providers/bd-service'
 /*
   Generated class for the Turmas page.
 
@@ -17,33 +18,34 @@ import {RemoverTurmasPage} from '../remover-turmas/remover-turmas';
 })
 export class TurmasPage {
     private listaTurmas: Turma[];
-    constructor(public navCtrl: NavController, public navParams: NavParams, public gerenciadorDeTurma: GerenciadorTurma) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public gerenciadorDeTurma: GerenciadorTurma,
+        public bancoDeDados: BDService) {
         this.listaTurmas = gerenciadorDeTurma.getTurmas();
     }
 
-    ionViewDidLoad() {
+    ionViewDidLoad(): void {
         console.log('ionViewDidLoad TurmasPage');
     }
 
-    goToCriarTurma(){
+    goToCriarTurma(): void {
         this.navCtrl.push(CriarTurmaPage);
     }
-    
-    goToAlterarTurma(turma: Turma){
+
+    goToAlterarTurma(turma: Turma): void {
         this.navCtrl.push(AlterarTurmaPage, {
             turma: turma
         });
     }
-    
-    goToRemoverTurmas(){
+
+    goToRemoverTurmas(): void {
         this.navCtrl.push(RemoverTurmasPage);
     }
-    
-    ordenarAlfabeticamenteTurmas(){
+
+    ordenarAlfabeticamenteTurmas(): void {
         this.gerenciadorDeTurma.ordernarAlfabeticamenteCrescente();
     }
-    
-    verTurma(){
+
+    verTurma(): void {
         console.log(this.gerenciadorDeTurma.getTurmas());
     }
 }

@@ -6,6 +6,7 @@ import {CriarAlunoPage} from '../criar-aluno/criar-aluno';
 import {GerenciadorTurma} from '../../providers/gerenciador-turma';
 import {AlterarAlunoPage} from '../alterar-aluno/alterar-aluno';
 import {RemoverAlunosPage} from '../remover-alunos/remover-alunos';
+import {BDService} from '../../providers/bd-service'
 /*
   Generated class for the CriarTurma page.
 
@@ -21,45 +22,47 @@ export class CriarTurmaPage {
     private nome: String
     private turno: String;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public gerenciadorDeTurma: GerenciadorTurma) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public gerenciadorDeTurma: GerenciadorTurma,
+        public bancoDeDados: BDService) {
         this.turma = new Turma("", "");
     }
 
-    ionViewDidLoad() {
+    ionViewDidLoad(): void {
         console.log('ionViewDidLoad CriarTurmaPage');
     }
 
-    goToCriarAluno(){
+    goToCriarAluno(): void {
         this.navCtrl.push(CriarAlunoPage, {
             turma: this.turma
         });
     }
-    
-    goToAlterarAluno(aluno: Aluno){
+
+    goToAlterarAluno(aluno: Aluno): void {
         this.navCtrl.push(AlterarAlunoPage, {
             turma: this.turma,
             aluno: aluno
         })
     }
-    
-    goToRemoverAlunos(){
+
+    goToRemoverAlunos(): void {
         this.navCtrl.push(RemoverAlunosPage, {
             turma: this.turma
         })
     }
-    
-    ordenarAlunosAlfabeticamente(){
+
+    ordenarAlunosAlfabeticamente(): void {
         this.turma.ordernarAlfabeticamenteCrescente();
     }
-    
-    confirmar(){
+
+    confirmar(): void {
         this.turma.setNome(this.nome);
         this.turma.setTurno(this.turno);
+        this.bancoDeDados.saveTurma(this.turma).subscribe(turma => this.turma = turma);
         this.gerenciadorDeTurma.addTurma(this.turma);
         this.navCtrl.pop();
     }
-    
-    cancelar(){
+
+    cancelar(): void {
         this.navCtrl.pop();
     }
 }

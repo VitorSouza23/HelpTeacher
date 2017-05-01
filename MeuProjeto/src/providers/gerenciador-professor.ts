@@ -15,10 +15,10 @@ export class GerenciadorProfessor {
     }
   
 
-    getProfessor() {
+    getProfessor(): Professor {
         return this.professor;
     }
-    setProfessor(novoProfessor: Professor) {
+    setProfessor(novoProfessor: Professor): void {
         this.professor = novoProfessor;
     }
 }

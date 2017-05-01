@@ -16,7 +16,7 @@ export class PaginaPrincipal {
         this.professor = gerenciadorProfessor.getProfessor();
     }
 
-    goToTurmasPage(){
+    goToTurmasPage(): void{
         this.navCtrl.push(TurmasPage);
     }
 }

@@ -25,7 +25,7 @@ export class RemoverTurmasPage {
         }))
     }
     
-    remover(){
+    remover(): void{
         this.listaSelecao.forEach((objeto) => {
             if(objeto.isSelected == true){
                 this.gerenciadorDeTurmas.removeTurma(objeto.turma);
@@ -34,11 +34,11 @@ export class RemoverTurmasPage {
         this.navCtrl.pop();
     }
     
-     cancelar(){
+     cancelar(): void{
         this.navCtrl.pop();
     }
 
-    ionViewDidLoad() {
+    ionViewDidLoad(): void {
         console.log('ionViewDidLoad RemoverTurmasPage');
     }
 

@@ -28,34 +28,34 @@ export class AlterarTurmaPage {
         this.turno = this.turma.getTurno();
     }
 
-    ionViewDidLoad() {
+    ionViewDidLoad(): void {
         console.log('ionViewDidLoad AlterarTurmaPage');
     }
 
-    goToCriarAluno() {
+    goToCriarAluno(): void {
         this.navCtrl.push(CriarAlunoPage, {
             turma: this.turma
         });
     }
 
-    goToAlterarAluno(aluno: Aluno) {
+    goToAlterarAluno(aluno: Aluno): void {
         this.navCtrl.push(AlterarAlunoPage, {
             turma: this.turma,
             aluno: aluno
         })
     }
 
-    goToRemoverAlunos() {
+    goToRemoverAlunos(): void {
         this.navCtrl.push(RemoverAlunosPage, {
             turma: this.turma
         })
     }
 
-    ordenarAlunosAlfabeticamente() {
+    ordenarAlunosAlfabeticamente(): void {
         this.turma.ordernarAlfabeticamenteCrescente();
     }
 
-    confirmar() {
+    confirmar(): void {
         let index: number = this.gerenciadorDeTurma.getIndexTurma(this.turma);
         this.turma.setNome(this.nome);
         this.turma.setTurno(this.turno);
@@ -63,7 +63,7 @@ export class AlterarTurmaPage {
         this.navCtrl.pop();
     }
 
-    cancelar() {
+    cancelar(): void {
         this.navCtrl.pop();
     }
 }

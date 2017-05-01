@@ -22,7 +22,7 @@ export class RemoverAlunosPage {
         this.turma.getAlunos().forEach((aluno) => this.listaSelecao.push({aluno: aluno, isSelected: false}));
     }
 
-    remover() {
+    remover(): void {
         this.listaSelecao.forEach((objeto) => {
             if (objeto.isSelected == true) {
                 this.gerenciadorTurma.removeAluno(this.turma, objeto.aluno);
@@ -31,11 +31,11 @@ export class RemoverAlunosPage {
         this.navCtrl.pop();
     }
     
-    cancelar(){
+    cancelar(): void {
         this.navCtrl.pop();
     }
 
-    ionViewDidLoad() {
+    ionViewDidLoad(): void {
         console.log('ionViewDidLoad RemoverAlunosPage');
     }
 

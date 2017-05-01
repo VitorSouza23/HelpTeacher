@@ -12,19 +12,19 @@ export class Nota{
         this.observacao = observacao;
     }
     
-    getValor(){
+    getValor(): number{
         return this.valor;
     }
     
-    setValor(valor: number){
+    setValor(valor: number): void{
         this.valor = valor;
     }
     
-    getObservacao(){
+    getObservacao(): String{
         return this.observacao;
     }
     
-    setObservacao(observacao: String){
+    setObservacao(observacao: String): void{
         this.observacao = observacao;
     }
 }

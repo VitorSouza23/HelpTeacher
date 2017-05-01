@@ -3,65 +3,64 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import {DAOInterface} from '../interfaces/DAOInterface'
+
 import {Nota} from '../class/Nota'
 
-export class Aluno extends DAOInterface{
+export class Aluno{
     private nome: String;
     private idade: number;
     private notas: Nota[];
     
     constructor(nome: String, idade: number) {
-        super();
         this.setNome(nome);
         this.setIdade(idade);
         this.notas = [];
     }
 
-    public getNome() {
+    public getNome(): String {
         return this.nome;
     }
 
-    public setNome(nome: String) {
+    public setNome(nome: String): void {
         this.nome = nome;
     }
 
-    public getIdade() {
+    public getIdade(): number {
         return this.idade
     }
 
-    public setIdade(idade: number) {
+    public setIdade(idade: number): void {
         this.idade = idade;
     }
 
-    public getNotas() {
+    public getNotas(): Nota[] {
         return this.notas;
     }
 
-    public setNotas(notas: Nota[]) {
+    public setNotas(notas: Nota[]): void {
         this.notas = notas;
     }
 
-    adicionarNota(nota: Nota) {
+    adicionarNota(nota: Nota): void {
         this.notas.push(nota);
     }
 
-    getNota(index: number) {
+    getNota(index: number): Nota {
         return this.notas[index];
     }
 
-    calcularMedia() {
+    calcularMedia(): number {
         let soma: number = 0;
         this.notas.forEach((nota) => soma = soma + nota.getValor());
         let media: number = soma / this.notas.length;
         return Math.round(media);
     }
 
-    alterarNota(index: number, novaNota: Nota) {
+    alterarNota(index: number, novaNota: Nota): void {
         this.notas[index] = novaNota;
     }
 
-    removerNota(index: number) {
+    removerNota(index: number): void {
         this.notas.slice(index, 1);
     }
 }
