@@ -39,9 +39,11 @@ export class AlterarTurmaPage {
     }
 
     goToAlterarAluno(aluno: Aluno): void {
+        let auxAluno: Aluno;
+        auxAluno = new Aluno(aluno.nome, aluno.idade);
         this.navCtrl.push(AlterarAlunoPage, {
             turma: this.turma,
-            aluno: aluno
+            aluno: auxAluno
         })
     }
 

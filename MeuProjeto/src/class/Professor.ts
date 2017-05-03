@@ -6,9 +6,9 @@
 import {DAOInterface} from '../interfaces/DAOInterface'
 
 export class Professor extends DAOInterface {
-    private nome: String;
-    private areaDeAtuacao: String;
-    private escola: String;
+    nome: String;
+    areaDeAtuacao: String;
+    escola: String;
 
     constructor(nome: String, areaDeAtuacao: String, escola: String) {
         super();

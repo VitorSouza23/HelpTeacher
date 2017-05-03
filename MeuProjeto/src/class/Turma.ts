@@ -7,10 +7,10 @@ import {DAOInterface} from '../interfaces/DAOInterface';
 import {Aluno} from '../class/Aluno';
 import {FerramentaListaInterface} from '../interfaces/FerramentasListaInterface';
 
-export class Turma extends DAOInterface implements FerramentaListaInterface{
-    private nome: String;
-    private turno: String;
-    private alunos: Aluno[];
+export class Turma extends DAOInterface implements FerramentaListaInterface {
+    nome: String;
+    turno: String;
+    alunos: Aluno[];
 
     constructor(nome: String, turno: String) {
         super();
@@ -18,7 +18,7 @@ export class Turma extends DAOInterface implements FerramentaListaInterface{
         this.alunos = [];
         this.turno = turno;
     }
-    
+
     getNome(): String {
         return this.nome;
     }
@@ -26,12 +26,12 @@ export class Turma extends DAOInterface implements FerramentaListaInterface{
     setNome(nome: String): void {
         this.nome = nome;
     }
-    
-    getTurno(): String{
+
+    getTurno(): String {
         return this.turno;
     }
-    
-    setTurno(turno: String): void{
+
+    setTurno(turno: String): void {
         this.turno = turno;
     }
 
@@ -60,9 +60,9 @@ export class Turma extends DAOInterface implements FerramentaListaInterface{
         return this.alunos[index];
     }
 
-    ordernarAlfabeticamenteCrescente(): void{
-        this.alunos.sort((a1,a2) => {
-            return a1.getNome() > a2.getNome()? 1 : -1;
+    ordernarAlfabeticamenteCrescente(): void {
+        this.alunos.sort((a1, a2) => {
+            return a1.getNome() > a2.getNome() ? 1 : -1;
         });
     }
 }

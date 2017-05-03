@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {Turma} from '../class/Turma';
 import {Aluno} from '../class/Aluno';
 import {FerramentaListaInterface} from '../interfaces/FerramentasListaInterface';
-import {BDService} from '../providers/bd-service'
 import 'rxjs/add/operator/map';
+import {BDService} from '../providers/bd-service';
 
 
 /*
@@ -15,16 +15,12 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class GerenciadorTurma implements FerramentaListaInterface{
     private turmas: Turma[];
-    constructor(private bancoDeDados: BDService) {
-        this.turmas = this.recuperarTurmasDoBanco();
+    constructor(public bancoDeDados: BDService) {
+        this.turmas = [];
+        this.recuperarTurmasDoBanco();
     }
     
-    private recuperarTurmasDoBanco(): Turma[]{
-        let turmas: Turma[];
-        this.bancoDeDados.getTurmas().subscribe(dados => turmas = dados);
-        return turmas;
-    }
-
+   
     public getTurmas(): Turma[] {
         return this.turmas;
     }
@@ -84,5 +80,18 @@ export class GerenciadorTurma implements FerramentaListaInterface{
         this.turmas.sort((t1, t2) => {
             return t1.getNome() > t2.getNome()? 1:-1;
         })
+    }
+    
+    private recuperarTurmasDoBanco(): void {
+        this.bancoDeDados.getTurmas().subscribe(dados => {
+            dados.forEach((turma) => {
+                let aux: Turma;
+                aux = new Turma(turma.nome, turma.turno);
+                aux.setAlunos(turma.alunos);
+                aux.setID(turma._id);
+                this.turmas.push(aux);
+            });
+            console.log(this.turmas);
+        });
     }
 }

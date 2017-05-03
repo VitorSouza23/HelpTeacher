@@ -28,7 +28,7 @@
         <ion-list>
             <button ion-item class="item-list" *ngFor="let turma of listaTurmas" (click)="goToAlterarTurma(turma)">
                     <ion-icon name="md-people" item-left></ion-icon>
-                {{turma.getNome()}}
+                {{turma.nome}}
             </button>
         </ion-list>
     </ion-card>

@@ -3,6 +3,9 @@ import {Nav, Platform} from 'ionic-angular';
 import {StatusBar, Splashscreen} from 'ionic-native';
 import {PaginaPrincipal} from '../pages/pagina-principal/pagina-principal';
 import {Configuracoes} from '../pages/configuracoes/configuracoes';
+import {GerenciadorTurma} from '../providers/gerenciador-turma';
+
+
 
 
 @Component({
@@ -15,7 +18,7 @@ export class MyApp {
 
     pages: Array<{title: string, component: any}>;
 
-    constructor(public platform: Platform) {
+    constructor(public platform: Platform, public gerenciadorDeTurmas: GerenciadorTurma) {
         this.initializeApp();
 
         // used for an example of ngFor and navigation
@@ -23,7 +26,6 @@ export class MyApp {
             {title: 'Menu Principal', component: PaginaPrincipal},
             {title: 'Configurações', component: Configuracoes}
         ];
-
     }
 
     initializeApp() {
@@ -40,4 +42,6 @@ export class MyApp {
         // we wouldn't want the back button to show in this scenario
         this.nav.setRoot(page.component);
     }
+
+    
 }

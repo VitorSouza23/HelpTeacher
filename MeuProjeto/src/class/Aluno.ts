@@ -7,9 +7,9 @@
 import {Nota} from '../class/Nota'
 
 export class Aluno{
-    private nome: String;
-    private idade: number;
-    private notas: Nota[];
+    nome: String;
+    idade: number;
+    notas: Nota[];
     
     constructor(nome: String, idade: number) {
         this.setNome(nome);

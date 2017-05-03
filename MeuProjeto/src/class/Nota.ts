@@ -5,8 +5,8 @@
  */
 
 export class Nota{
-    private valor: number;
-    private observacao: String;
+    valor: number;
+    observacao: String;
     contructor(valor: number, observacao: String){
         this.valor = valor;
         this.observacao = observacao;

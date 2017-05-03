@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 export class DAOInterface {
-    private _id: any;
+    _id: any;
     constructor() {
         this._id = {};
     }
