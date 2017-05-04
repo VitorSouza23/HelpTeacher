@@ -15,7 +15,7 @@ import {BDService} from '../providers/bd-service';
 @Injectable()
 export class GerenciadorTurma implements FerramentaListaInterface{
     private turmas: Turma[];
-    constructor(public bancoDeDados: BDService) {
+    constructor(private bancoDeDados: BDService) {
         this.turmas = [];
         this.recuperarTurmasDoBanco();
     }
@@ -82,7 +82,7 @@ export class GerenciadorTurma implements FerramentaListaInterface{
         })
     }
     
-    private recuperarTurmasDoBanco(): void {
+    recuperarTurmasDoBanco(): void {
         this.bancoDeDados.getTurmas().subscribe(dados => {
             dados.forEach((turma) => {
                 let aux: Turma;

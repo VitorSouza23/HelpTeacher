@@ -40,7 +40,12 @@ export class Turma extends DAOInterface implements FerramentaListaInterface {
     }
 
     setAlunos(alunos: Aluno[]): void {
-        this.alunos = alunos;
+        let auxAluno: Aluno;
+        alunos.forEach((aluno) => {
+            auxAluno = new Aluno(aluno.nome, aluno.idade);
+            auxAluno.setNotas(aluno.notas);
+            this.addAluno(auxAluno);
+        });
     }
 
     addAluno(aluno: Aluno): void {

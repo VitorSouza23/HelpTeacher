@@ -38,7 +38,11 @@ export class Aluno{
     }
 
     public setNotas(notas: Nota[]): void {
-        this.notas = notas;
+        let auxNota: Nota;
+        notas.forEach((nota) => {
+            auxNota = new Nota(nota.valor, nota.observacao);
+            this.adicionarNota(auxNota);
+        });
     }
 
     adicionarNota(nota: Nota): void {

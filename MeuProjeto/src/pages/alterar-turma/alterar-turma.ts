@@ -6,6 +6,7 @@ import {CriarAlunoPage} from '../criar-aluno/criar-aluno';
 import {GerenciadorTurma} from '../../providers/gerenciador-turma';
 import {AlterarAlunoPage} from '../alterar-aluno/alterar-aluno';
 import {RemoverAlunosPage} from '../remover-alunos/remover-alunos';
+import {BDService} from '../../providers/bd-service';
 
 /*
   Generated class for the AlterarTurma page.
@@ -22,7 +23,8 @@ export class AlterarTurmaPage {
     private nome: String
     private turno: String;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public gerenciadorDeTurma: GerenciadorTurma) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public gerenciadorDeTurma: GerenciadorTurma,
+        private bancoDeDados: BDService) {
         this.turma = this.navParams.get('turma');
         this.nome = this.turma.getNome();
         this.turno = this.turma.getTurno();
@@ -39,11 +41,9 @@ export class AlterarTurmaPage {
     }
 
     goToAlterarAluno(aluno: Aluno): void {
-        let auxAluno: Aluno;
-        auxAluno = new Aluno(aluno.nome, aluno.idade);
         this.navCtrl.push(AlterarAlunoPage, {
             turma: this.turma,
-            aluno: auxAluno
+            aluno: aluno
         })
     }
 
@@ -61,11 +61,13 @@ export class AlterarTurmaPage {
         let index: number = this.gerenciadorDeTurma.getIndexTurma(this.turma);
         this.turma.setNome(this.nome);
         this.turma.setTurno(this.turno);
+        this.bancoDeDados.updateTurma(this.turma).subscribe(turma => this.turma = turma);
         this.gerenciadorDeTurma.updateTurma(this.turma, index);
         this.navCtrl.pop();
     }
 
     cancelar(): void {
+        this.gerenciadorDeTurma.recuperarTurmasDoBanco();
         this.navCtrl.pop();
     }
 }

@@ -7,7 +7,8 @@
 export class Nota{
     valor: number;
     observacao: String;
-    contructor(valor: number, observacao: String){
+    
+    constructor(valor: number, observacao: String){
         this.valor = valor;
         this.observacao = observacao;
     }

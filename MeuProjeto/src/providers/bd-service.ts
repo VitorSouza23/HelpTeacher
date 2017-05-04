@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, Headers, RequestOptions} from '@angular/http';
 import {Turma} from '../class/Turma';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Rx';
@@ -25,20 +25,28 @@ export class BDService {
     }*/
 
     saveTurma(turma: Turma): Observable<Turma> {
-        let turmaJSON: any = {
-            nome: turma.getNome(),
-            turno: turma.getTurno(),
-            alunos: turma.getAlunos()
-        }
-        return this.http.post(this.pathTurma.toString(), turmaJSON)
+        let headers = new Headers({'Content-Type': 'application/json'});
+        let options = new RequestOptions({headers: headers});
+        return this.http.post(this.pathTurma.toString(), JSON.stringify(turma), options)
             .map(dados => dados.json());
     }
-    
-    getTurmas(): Observable<Turma []>{
+
+    getTurmas(): Observable<Turma[]> {
         return this.http.get(this.pathTurma.toString())
             .map(dados => dados.json());
     }
     
-   
+    updateTurma(turma: Turma): Observable<Turma>{
+        let headers = new Headers({'Content-Type': 'application/json'});
+        let options = new RequestOptions({headers: headers});
+        let id: String = '&q=' + JSON.stringify({_id: turma.getID()});
+        console.log(this.pathTurma.toString() + id);
+        return this.http.put(this.pathTurma.toString() + id, JSON.stringify(turma), options)
+            .map(dados => dados.json());
+    }
+
+
+
+
 
 }
