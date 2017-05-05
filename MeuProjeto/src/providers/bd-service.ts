@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Headers, RequestOptions, RequestMethod} from '@angular/http';
+import {Http, Headers, RequestOptions} from '@angular/http';
 import {Turma} from '../class/Turma';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Rx';

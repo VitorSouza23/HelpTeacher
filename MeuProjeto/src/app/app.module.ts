@@ -12,7 +12,8 @@ import {AlterarAlunoPage} from '../pages/alterar-aluno/alterar-aluno';
 import {RemoverAlunosPage} from '../pages/remover-alunos/remover-alunos';
 import {AlterarTurmaPage} from '../pages/alterar-turma/alterar-turma';
 import {RemoverTurmasPage} from '../pages/remover-turmas/remover-turmas';
-import {BDService} from '../providers/bd-service'
+import {BDService} from '../providers/bd-service';
+import {GerenciadorAtividades} from '../providers/gerenciador-atividades';
 
 @NgModule({
     declarations: [
@@ -43,6 +44,12 @@ import {BDService} from '../providers/bd-service'
         AlterarTurmaPage,
         RemoverTurmasPage
     ],
-    providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, GerenciadorTurma, GerenciadorProfessor, BDService]
+    providers: [
+        {provide: ErrorHandler, useClass: IonicErrorHandler},
+        GerenciadorTurma,
+        GerenciadorProfessor,
+        BDService,
+        GerenciadorAtividades
+    ]
 })
 export class AppModule {}
