@@ -61,9 +61,13 @@ export class AlterarTurmaPage {
         let index: number = this.gerenciadorDeTurma.getIndexTurma(this.turma);
         this.turma.setNome(this.nome);
         this.turma.setTurno(this.turno);
-        this.bancoDeDados.updateTurma(this.turma).subscribe(turma => this.turma = turma);
+        this.bancoDeDados.updateTurma(this.turma).subscribe(turma => console.log(turma));
         this.gerenciadorDeTurma.updateTurma(this.turma, index);
         this.navCtrl.pop();
+    }
+    
+    eventoPressionar(e): void{
+        this.goToRemoverAlunos();
     }
 
     cancelar(): void {

@@ -44,6 +44,10 @@ export class TurmasPage {
     ordenarAlfabeticamenteTurmas(): void {
         this.gerenciadorDeTurma.ordernarAlfabeticamenteCrescente();
     }
+    
+    eventoPressionar(e): void{
+        this.goToRemoverTurmas();
+    }
 
     verTurma(): void {
         console.log(this.gerenciadorDeTurma.getTurmas());

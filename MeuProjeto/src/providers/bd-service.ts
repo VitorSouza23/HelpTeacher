@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Headers, RequestOptions} from '@angular/http';
+import {Http, Headers, RequestOptions, RequestMethod} from '@angular/http';
 import {Turma} from '../class/Turma';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Rx';
@@ -27,7 +27,12 @@ export class BDService {
     saveTurma(turma: Turma): Observable<Turma> {
         let headers = new Headers({'Content-Type': 'application/json'});
         let options = new RequestOptions({headers: headers});
-        return this.http.post(this.pathTurma.toString(), JSON.stringify(turma), options)
+        let turmaAux = {
+            nome: turma.getNome(),
+            turno: turma.getTurno(),
+            alunos: turma.getAlunos()
+        }
+        return this.http.post(this.pathTurma.toString(), turmaAux, options)
             .map(dados => dados.json());
     }
 
@@ -37,11 +42,21 @@ export class BDService {
     }
     
     updateTurma(turma: Turma): Observable<Turma>{
-        let headers = new Headers({'Content-Type': 'application/json'});
-        let options = new RequestOptions({headers: headers});
         let id: String = '&q=' + JSON.stringify({_id: turma.getID()});
         console.log(this.pathTurma.toString() + id);
-        return this.http.put(this.pathTurma.toString() + id, JSON.stringify(turma), options)
+        let turmaAux = {
+            nome: turma.getNome(),
+            turno: turma.getTurno(),
+            alunos: turma.getAlunos()
+        }
+        return this.http.put(this.pathTurma.toString() + id.toString(), turmaAux)
+            .map(dados => dados.json());
+    }
+    
+    removeTurma(turma: Turma): Observable<Turma>{
+        let id: String = '&q=' + JSON.stringify({_id: turma.getID()});
+        console.log(this.pathTurma.toString() + id);
+        return this.http.put(this.pathTurma.toString() + id.toString(), [])
             .map(dados => dados.json());
     }
 

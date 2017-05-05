@@ -46,7 +46,7 @@
             </ion-item>
         </ion-card-header>
         <ion-list>
-            <button ion-item class="item-list" *ngFor="let aluno of turma.getAlunos()" (click)="goToAlterarAluno(aluno)">
+            <button ion-item class="item-list" *ngFor="let aluno of turma.getAlunos()" (click)="goToAlterarAluno(aluno)" (press)="eventoPressionar($event)">
                     <ion-icon name="md-person" item-left></ion-icon>
                 {{aluno.nome}}
             </button>

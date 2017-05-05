@@ -26,7 +26,7 @@
 
         </ion-card-header>
         <ion-list>
-            <button ion-item class="item-list" *ngFor="let turma of listaTurmas" (click)="goToAlterarTurma(turma)">
+            <button ion-item class="item-list" *ngFor="let turma of listaTurmas" (click)="goToAlterarTurma(turma)" (press)="eventoPressionar($event)">
                     <ion-icon name="md-people" item-left></ion-icon>
                 {{turma.nome}}
             </button>

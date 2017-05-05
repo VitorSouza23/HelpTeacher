@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {GerenciadorTurma} from '../../providers/gerenciador-turma';
 import {Turma} from '../../class/Turma';
+import {BDService} from '../../providers/bd-service' 
 /*
   Generated class for the RemoverTurmas page.
 
@@ -16,7 +17,8 @@ export class RemoverTurmasPage {
     private turmas: Turma[];
     private listaSelecao: any[];
     
-    constructor(public navCtrl: NavController, public navParams: NavParams, public gerenciadorDeTurmas: GerenciadorTurma) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public gerenciadorDeTurmas: GerenciadorTurma,
+        private bancoDeDados: BDService) {
         this.turmas = this.gerenciadorDeTurmas.getTurmas();
         this.listaSelecao = [];
         this.turmas.forEach((turma) => this.listaSelecao.push({
@@ -28,6 +30,7 @@ export class RemoverTurmasPage {
     remover(): void{
         this.listaSelecao.forEach((objeto) => {
             if(objeto.isSelected == true){
+                this.bancoDeDados.removeTurma(objeto.turma).subscribe(turma => console.log(turma));
                 this.gerenciadorDeTurmas.removeTurma(objeto.turma);
             }
         });

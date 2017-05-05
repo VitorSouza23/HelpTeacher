@@ -11,7 +11,7 @@ import {Professor} from '../class/Professor'
 export class GerenciadorProfessor {
     private professor: Professor;
     constructor() {
-        this.professor = new Professor('Andréa','Ensino Fundamental','E.M.E.B Professor Trajno');
+        this.professor = new Professor('Andréa','Ensino Fundamental','E.M.E.B Professor Trajano');
     }
   
 

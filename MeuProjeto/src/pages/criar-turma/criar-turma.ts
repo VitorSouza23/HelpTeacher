@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {NavController, NavParams, LoadingController} from 'ionic-angular';
 import {Turma} from '../../class/Turma'
 import {Aluno} from '../../class/Aluno';
 import {CriarAlunoPage} from '../criar-aluno/criar-aluno';
@@ -23,7 +23,7 @@ export class CriarTurmaPage {
     private turno: String;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public gerenciadorDeTurma: GerenciadorTurma,
-        public bancoDeDados: BDService) {
+        public bancoDeDados: BDService, private loading: LoadingController) {
         this.turma = new Turma("", "");
     }
 
@@ -57,9 +57,21 @@ export class CriarTurmaPage {
     confirmar(): void {
         this.turma.setNome(this.nome);
         this.turma.setTurno(this.turno);
-        this.bancoDeDados.saveTurma(this.turma).subscribe(turma => this.turma = turma);
-        this.gerenciadorDeTurma.addTurma(this.turma);
-        this.navCtrl.pop();
+        this.bancoDeDados.saveTurma(this.turma).subscribe(turma => {this.turma.setID(turma._id)});
+        this.loading.create({
+            content: 'Salvando...',
+            duration: 2000
+        }).present();
+        setTimeout(() => {
+            this.gerenciadorDeTurma.addTurma(this.turma);
+            console.log(this.turma);
+            this.navCtrl.pop();
+        }, 2000);
+
+    }
+    
+    eventoPressionar(e): void{
+        this.goToRemoverAlunos();
     }
 
     cancelar(): void {
