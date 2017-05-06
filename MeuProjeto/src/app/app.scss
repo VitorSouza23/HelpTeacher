@@ -18,6 +18,7 @@
 .ios, .android, .md{
     ion-card{
         background-color: map-get($colors, ligth-red);
+        border-radius: 10px;
     }
 
     ion-card-header{

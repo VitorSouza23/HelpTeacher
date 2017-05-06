@@ -1,0 +1,45 @@
+<!--
+  Generated template for the Atividades page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Atividades</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-card>
+        <ion-card-header>
+            <ion-item class="header-button">
+                <h2>Controle de Atividades</h2>
+                <button ion-button color="yellow" round item-right icon-left (click)="goToCriarAtividadePage()">
+                        <ion-icon name="md-add-circle"></ion-icon>
+                    Adicionar
+                </button>
+            </ion-item>
+
+        </ion-card-header>
+        <ion-list>
+            <button ion-item class="item-list"  *ngFor="let atividade of atividades">
+                    <ion-icon name="md-book" item-left></ion-icon>
+                {{atividade.getNome()}}
+            </button>
+        </ion-list>
+    </ion-card>
+    <ion-fab right bottom>
+        <button ion-fab color="secondary">
+            <ion-icon name="md-book"></ion-icon>
+        </button>
+        <ion-fab-list side="top">
+            <button ion-fab color="secondary" (click)="goToCriarAtividadePage()"><ion-icon name="md-add-circle"></ion-icon></button>
+            <button ion-fab color="danger" ><ion-icon name="md-backspace"></ion-icon></button>
+            <button ion-fab color="dark" ><ion-icon name="md-shuffle"></ion-icon></button>
+        </ion-fab-list>
+    </ion-fab>
+</ion-content>

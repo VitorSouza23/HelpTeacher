@@ -14,6 +14,8 @@ import {AlterarTurmaPage} from '../pages/alterar-turma/alterar-turma';
 import {RemoverTurmasPage} from '../pages/remover-turmas/remover-turmas';
 import {BDService} from '../providers/bd-service';
 import {GerenciadorAtividades} from '../providers/gerenciador-atividades';
+import {AtividadesPage} from '../pages/atividades/atividades';
+import {CriarAtividadePage} from '../pages/criar-atividade/criar-atividade';
 
 @NgModule({
     declarations: [
@@ -26,7 +28,9 @@ import {GerenciadorAtividades} from '../providers/gerenciador-atividades';
         AlterarAlunoPage,
         RemoverAlunosPage,
         AlterarTurmaPage,
-        RemoverTurmasPage
+        RemoverTurmasPage,
+        AtividadesPage,
+        CriarAtividadePage
     ],
     imports: [
         IonicModule.forRoot(MyApp)
@@ -42,7 +46,9 @@ import {GerenciadorAtividades} from '../providers/gerenciador-atividades';
         AlterarAlunoPage,
         RemoverAlunosPage,
         AlterarTurmaPage,
-        RemoverTurmasPage
+        RemoverTurmasPage,
+        AtividadesPage,
+        CriarAtividadePage
     ],
     providers: [
         {provide: ErrorHandler, useClass: IonicErrorHandler},

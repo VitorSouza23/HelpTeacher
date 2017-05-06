@@ -5,11 +5,12 @@
  */
 import {DAOInterface} from '../interfaces/DAOInterface';
 import {Turma} from '../class/Turma';
+import {Tarefa} from '../class/Tarefa';
 
 export class Atividade extends DAOInterface {
     nome: String;
     descricao: String;
-    taresfas: String[];
+    taresfas: Tarefa[];
     data: Date;
     turma: Turma;
 
@@ -46,28 +47,28 @@ export class Atividade extends DAOInterface {
         this.data = data;
     }
 
-    addTarefa(tarefa: String): void {
+    addTarefa(tarefa: Tarefa): void {
         this.taresfas.push(tarefa);
     }
 
-    removeTarefa(tarefa: String): void {
+    removeTarefa(tarefa: Tarefa): void {
         let index: number = this.taresfas.indexOf(tarefa);
         this.taresfas.splice(index, 1);
     }
 
-    updateTarefa(novaTarefa: String, index: number): void {
+    updateTarefa(novaTarefa: Tarefa, index: number): void {
         this.taresfas[index] = novaTarefa;
     }
 
-    getTarefa(index: number): String {
+    getTarefa(index: number): Tarefa {
         return this.taresfas[index];
     }
 
-    getTarefas(): String[] {
+    getTarefas(): Tarefa[] {
         return this.taresfas;
     }
     
-    setTarefas(tarefas: String[]): void {
+    setTarefas(tarefas: Tarefa[]): void {
         this.taresfas = tarefas;
     }
     
