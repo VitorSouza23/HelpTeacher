@@ -19,7 +19,7 @@
             <ion-item class="header-button">
                 <h2>Turmas Atuais</h2>
                 <button ion-button color="secondary" round item-right icon-left (click)="goToCriarTurma()">
-                        <ion-icon name="md-add-circle"></ion-icon>
+                        <ion-icon name="add-circle"></ion-icon>
                     Adicionar
                 </button>
             </ion-item>
@@ -27,19 +27,19 @@
         </ion-card-header>
         <ion-list>
             <button ion-item class="item-list" *ngFor="let turma of listaTurmas" (click)="goToAlterarTurma(turma)" (press)="eventoPressionar($event)">
-                    <ion-icon name="md-people" item-left></ion-icon>
+                    <ion-icon name="people" item-left></ion-icon>
                 {{turma.nome}}
             </button>
         </ion-list>
     </ion-card>
     <ion-fab right bottom>
         <button ion-fab color="secondary">
-            <ion-icon name="md-people"></ion-icon>
+            <ion-icon name="people"></ion-icon>
         </button>
         <ion-fab-list side="top">
-            <button ion-fab color="secondary"(click)="goToCriarTurma()"><ion-icon name="md-add-circle"></ion-icon></button>
-            <button ion-fab color="danger" (click)="goToRemoverTurmas()"><ion-icon name="md-backspace"></ion-icon></button>
-            <button ion-fab color="dark" (click)="ordenarAlfabeticamenteTurmas()"><ion-icon name="md-shuffle"></ion-icon></button>
+            <button ion-fab color="secondary"(click)="goToCriarTurma()"><ion-icon name="add-circle"></ion-icon></button>
+            <button ion-fab color="danger" (click)="goToRemoverTurmas()"><ion-icon name="backspace"></ion-icon></button>
+            <button ion-fab color="dark" (click)="ordenarAlfabeticamenteTurmas()"><ion-icon name="shuffle"></ion-icon></button>
         </ion-fab-list>
     </ion-fab>
 </ion-content>

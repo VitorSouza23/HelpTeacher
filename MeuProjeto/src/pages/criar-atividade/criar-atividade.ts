@@ -17,8 +17,9 @@ import {GerenciadorTurma} from '../../providers/gerenciador-turma';
     templateUrl: 'criar-atividade.html'
 })
 export class CriarAtividadePage {
+    private atividade: Atividade;
     private nome: String;
-    private data: Date;
+    private data: String;
     private descricao: String;
     private tarefas: Tarefa[];
     private turma: Turma;
@@ -27,11 +28,23 @@ export class CriarAtividadePage {
     constructor(public navCtrl: NavController, public navParams: NavParams,
         private gerenciarDeAtividades: GerenciadorAtividades, private gerenciadorDeTurma: GerenciadorTurma) {
         this.nome = "";
-        this.data = new Date(new Date(Date.now()).toISOString());
+        this.data = new Date().toISOString();
         this.descricao = "";
         this.tarefas = [];
         this.turma = null;
         this.listaTurmas = this.gerenciadorDeTurma.getTurmas();
+    }
+    
+    confirmar(): void {
+        this.atividade = new Atividade(this.nome, this.descricao, this.data);
+        this.atividade.setTurma(this.turma);
+        this.atividade.setTarefas(this.tarefas);
+        this.gerenciarDeAtividades.addAtividade(this.atividade);
+        this.navCtrl.pop();
+    }
+    
+    cancelar(): void{
+        this.navCtrl.pop();
     }
 
 

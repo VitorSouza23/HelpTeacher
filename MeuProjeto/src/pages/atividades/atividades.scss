@@ -1,3 +1,5 @@
 page-atividades {
-
+    .header-button  button{
+        background-color: map-get($colors, ligth-red);
+    }
 }

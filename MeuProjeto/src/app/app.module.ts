@@ -33,7 +33,9 @@ import {CriarAtividadePage} from '../pages/criar-atividade/criar-atividade';
         CriarAtividadePage
     ],
     imports: [
-        IonicModule.forRoot(MyApp)
+        IonicModule.forRoot(MyApp, {
+            dayNames: ['Domingo', 'Segunda-feria', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado']
+        })
     ],
     bootstrap: [IonicApp],
     entryComponents: [

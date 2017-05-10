@@ -29,7 +29,7 @@
             </ion-item>
             <ion-item class="input-values">
                 <ion-label floating>Data da Realização:</ion-label>
-                <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="data"></ion-datetime>
+                <ion-datetime displayFormat="DD/MM/YYYY - DDDD" [(ngModel)]="data"></ion-datetime>
             </ion-item>
         </ion-list>
     </ion-card>
@@ -53,7 +53,7 @@
             <ion-item class="header-button">
                 <h2>Tarefas</h2>
                 <button ion-button color="primary" round item-right icon-left>
-                    <ion-icon name="md-add-circle"></ion-icon>
+                    <ion-icon name="add-circle"></ion-icon>
                     Adicionar
                 </button>
             </ion-item>
@@ -61,7 +61,7 @@
         <ion-list>
             <ion-item *ngFor="let tarefa of tarefas">
                 <ion-label>
-                    <ion-icon name="md-school" item-left></ion-icon>
+                    <ion-icon name="school" item-left></ion-icon>
                     {{tarefa.getDescrica()}}
                 </ion-label>
                 <ion-checkbox [(ngModel)]="tarefa.cumprida"></ion-checkbox>
@@ -69,6 +69,6 @@
         </ion-list>
     </ion-card>
 
-    <button ion-button round full>Confirmar</button>
-    <button ion-button round full color="danger">Cancelar</button>
+    <button ion-button round full (click)="confirmar()">Confirmar</button>
+    <button ion-button round full color="danger" (click)="cancelar()">Cancelar</button>
 </ion-content>

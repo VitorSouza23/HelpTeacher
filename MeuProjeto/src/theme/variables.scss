@@ -39,21 +39,21 @@ yellow:     #ffff00
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
+$label-ios-text-color: map-get($colors, primary);
 
 
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
+$label-md-text-color: map-get($colors, primary);
 
 
 
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
-
+$label-wp-text-color: map-get($colors, primary);
 
 
 

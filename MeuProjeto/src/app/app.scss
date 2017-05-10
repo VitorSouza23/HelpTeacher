@@ -15,7 +15,7 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-.ios, .android, .md{
+.ios, .wp, .md{
     ion-card{
         background-color: map-get($colors, ligth-red);
         border-radius: 10px;
@@ -69,4 +69,6 @@
         border-color: map-get($colors, ligth-red);
         height: 75px;
     }
+    
+    
 }

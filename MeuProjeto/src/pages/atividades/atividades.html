@@ -18,8 +18,8 @@
         <ion-card-header>
             <ion-item class="header-button">
                 <h2>Controle de Atividades</h2>
-                <button ion-button color="yellow" round item-right icon-left (click)="goToCriarAtividadePage()">
-                        <ion-icon name="md-add-circle"></ion-icon>
+                <button ion-button round item-right icon-left (click)="goToCriarAtividadePage()">
+                        <ion-icon name="add-circle"></ion-icon>
                     Adicionar
                 </button>
             </ion-item>
@@ -27,19 +27,19 @@
         </ion-card-header>
         <ion-list>
             <button ion-item class="item-list"  *ngFor="let atividade of atividades">
-                    <ion-icon name="md-book" item-left></ion-icon>
+                    <ion-icon name="book" item-left></ion-icon>
                 {{atividade.getNome()}}
             </button>
         </ion-list>
     </ion-card>
     <ion-fab right bottom>
         <button ion-fab color="secondary">
-            <ion-icon name="md-book"></ion-icon>
+            <ion-icon name="book"></ion-icon>
         </button>
         <ion-fab-list side="top">
-            <button ion-fab color="secondary" (click)="goToCriarAtividadePage()"><ion-icon name="md-add-circle"></ion-icon></button>
-            <button ion-fab color="danger" ><ion-icon name="md-backspace"></ion-icon></button>
-            <button ion-fab color="dark" ><ion-icon name="md-shuffle"></ion-icon></button>
+            <button ion-fab color="secondary" (click)="goToCriarAtividadePage()"><ion-icon name="add-circle"></ion-icon></button>
+            <button ion-fab color="danger" ><ion-icon name="backspace"></ion-icon></button>
+            <button ion-fab color="dark" ><ion-icon name="shuffle"></ion-icon></button>
         </ion-fab-list>
     </ion-fab>
 </ion-content>

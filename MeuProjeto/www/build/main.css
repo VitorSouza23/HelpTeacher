@@ -13351,7 +13351,7 @@ ion-label[floating] {
 .item-input .label-md,
 .item-select .label-md,
 .item-datetime .label-md {
-  color: #999;
+  color: #387ef5;
 }
 
 .label-md[stacked] {
@@ -13461,7 +13461,7 @@ ion-label[floating] {
 .item-input .label-wp,
 .item-select .label-wp,
 .item-datetime .label-wp {
-  color: #999;
+  color: #387ef5;
 }
 
 .label-wp[stacked] {
@@ -32032,58 +32032,62 @@ sub {
   }
 }
 
-.ios ion-card, .android ion-card, .md ion-card {
+.ios ion-card, .wp ion-card, .md ion-card {
   background-color: #ff9999;
   border-radius: 10px;
 }
 
-.ios ion-card-header, .android ion-card-header, .md ion-card-header {
+.ios ion-card-header, .wp ion-card-header, .md ion-card-header {
   background-color: #f53d3d;
   font-size: 18px;
   color: white;
 }
 
-.ios ion-card-content, .android ion-card-content, .md ion-card-content {
+.ios ion-card-content, .wp ion-card-content, .md ion-card-content {
   margin-top: 15px;
 }
 
-.ios p, .android p, .md p {
+.ios p, .wp p, .md p {
   font-size: 18px;
 }
 
-.ios .toolbar-background, .android .toolbar-background, .md .toolbar-background {
+.ios .toolbar-background, .wp .toolbar-background, .md .toolbar-background {
   background-color: #f53d3d;
 }
 
-.ios .toolbar-title, .ios .bar-button-default, .android .toolbar-title, .android .bar-button-default, .md .toolbar-title, .md .bar-button-default {
+.ios .toolbar-title, .ios .bar-button-default, .wp .toolbar-title, .wp .bar-button-default, .md .toolbar-title, .md .bar-button-default {
   color: white;
 }
 
-.ios .header-button, .android .header-button, .md .header-button {
+.ios .header-button, .wp .header-button, .md .header-button {
   background-color: #f53d3d;
   font-size: 18px;
 }
 
-.ios .header-button h2, .android .header-button h2, .md .header-button h2 {
+.ios .header-button h2, .wp .header-button h2, .md .header-button h2 {
   color: white;
   font-size: 18px;
 }
 
-.ios .input-values, .android .input-values, .md .input-values {
+.ios .input-values, .wp .input-values, .md .input-values {
   border-style: solid;
   border-width: 2px;
   border-color: #ff9999;
 }
 
-.ios .item-list, .android .item-list, .md .item-list {
+.ios .item-list, .wp .item-list, .md .item-list {
   border-style: solid;
   border-width: 2px;
   border-color: #ff9999;
 }
 
-.ios .ion-select-lable, .android .ion-select-lable, .md .ion-select-lable {
+.ios .ion-select-lable, .wp .ion-select-lable, .md .ion-select-lable {
   border-style: solid;
   border-width: 2px;
   border-color: #ff9999;
   height: 75px;
+}
+
+page-atividades .header-button button {
+  background-color: #ff9999;
 }

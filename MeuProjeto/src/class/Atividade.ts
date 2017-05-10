@@ -11,10 +11,10 @@ export class Atividade extends DAOInterface {
     nome: String;
     descricao: String;
     taresfas: Tarefa[];
-    data: Date;
+    data: String;
     turma: Turma;
 
-    constructor(nome: String, descricao: String, data: Date) {
+    constructor(nome: String, descricao: String, data: String) {
         super();
         this.nome = nome;
         this.descricao = descricao;
@@ -39,11 +39,11 @@ export class Atividade extends DAOInterface {
         this.descricao = descricao;
     }
 
-    getData(): Date {
+    getData(): String {
         return this.data
     }
 
-    setData(data: Date): void {
+    setData(data: String): void {
         this.data = data;
     }
 
