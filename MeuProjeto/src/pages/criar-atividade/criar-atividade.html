@@ -52,17 +52,17 @@
         <ion-card-header>
             <ion-item class="header-button">
                 <h2>Tarefas</h2>
-                <button ion-button color="primary" round item-right icon-left>
+                <button ion-button color="primary" round item-right icon-left (click)="addTarefa()">
                     <ion-icon name="add-circle"></ion-icon>
                     Adicionar
                 </button>
             </ion-item>
         </ion-card-header>
         <ion-list>
-            <ion-item *ngFor="let tarefa of tarefas">
+            <ion-item *ngFor="let tarefa of tarefas" (click)="updateTarefa(tarefa)">
                 <ion-label>
                     <ion-icon name="school" item-left></ion-icon>
-                    {{tarefa.getDescrica()}}
+                    {{tarefa.getDescricao()}}
                 </ion-label>
                 <ion-checkbox [(ngModel)]="tarefa.cumprida"></ion-checkbox>
             </ion-item>

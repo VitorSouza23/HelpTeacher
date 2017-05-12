@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {NavController, NavParams, AlertController} from 'ionic-angular';
 import {Atividade} from '../../class/Atividade';
 import {Turma} from '../../class/Turma';
 import {Tarefa} from '../../class/Tarefa';
@@ -26,7 +26,8 @@ export class CriarAtividadePage {
     private listaTurmas: Turma[];
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
-        private gerenciarDeAtividades: GerenciadorAtividades, private gerenciadorDeTurma: GerenciadorTurma) {
+        private gerenciarDeAtividades: GerenciadorAtividades, private gerenciadorDeTurma: GerenciadorTurma,
+        private alertCtrl: AlertController) {
         this.nome = "";
         this.data = new Date().toISOString();
         this.descricao = "";
@@ -34,7 +35,48 @@ export class CriarAtividadePage {
         this.turma = null;
         this.listaTurmas = this.gerenciadorDeTurma.getTurmas();
     }
-    
+
+    addTarefa() {
+        this.alertCtrl.create({
+            title: 'Nova Tarefa',
+            message: 'Crie uma nova tarefa...',
+            inputs: [{
+                name: 'descricao',
+                placeholder: "Descrição"
+            }],
+            buttons: [{
+                text: 'Cancelar'
+            },
+            {
+                text: 'Confirmar',
+                handler: (data: any) => {this.tarefas.push(new Tarefa(data.descricao, false))}
+            }]
+        }).present();
+    }
+
+    updateTarefa(tarefa: Tarefa): void {
+        this.alertCtrl.create({
+            title: 'Nova Tarefa',
+            message: 'Crie uma nova tarefa...',
+            inputs: [{
+                name: 'descricao',
+                placeholder: "Descrição",
+                value: tarefa.descricao.toString()
+            }],
+            buttons: [{
+                text: 'Cancelar'
+            },
+            {
+                text: 'Confirmar',
+                handler: (data: any) => {
+                    let index: number = this.tarefas.indexOf(tarefa);
+                    tarefa.descricao = data.descricao;
+                    this.tarefas[index] = tarefa;
+                }
+            }]
+        }).present();
+    }
+
     confirmar(): void {
         this.atividade = new Atividade(this.nome, this.descricao, this.data);
         this.atividade.setTurma(this.turma);
@@ -42,8 +84,8 @@ export class CriarAtividadePage {
         this.gerenciarDeAtividades.addAtividade(this.atividade);
         this.navCtrl.pop();
     }
-    
-    cancelar(): void{
+
+    cancelar(): void {
         this.navCtrl.pop();
     }
 
