@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, AlertController} from 'ionic-angular';
+import {NavController, NavParams, AlertController, ItemSliding} from 'ionic-angular';
 import {Atividade} from '../../class/Atividade';
 import {Turma} from '../../class/Turma';
 import {Tarefa} from '../../class/Tarefa';
@@ -54,7 +54,7 @@ export class CriarAtividadePage {
         }).present();
     }
 
-    updateTarefa(tarefa: Tarefa): void {
+    updateTarefa(tarefa: Tarefa, itemSlid: ItemSliding): void {
         this.alertCtrl.create({
             title: 'Nova Tarefa',
             message: 'Crie uma nova tarefa...',
@@ -75,11 +75,18 @@ export class CriarAtividadePage {
                 }
             }]
         }).present();
+        itemSlid.close();
+    }
+    
+    removeTarefa(tarefa: Tarefa, itemSlid: ItemSliding): void {
+        let index: number = this.tarefas.indexOf(tarefa);
+        this.tarefas.splice(index, 1);
+        itemSlid.close();
     }
 
     confirmar(): void {
         this.atividade = new Atividade(this.nome, this.descricao, this.data);
-        this.atividade.setTurma(this.turma);
+        this.atividade.turma = this.turma;
         this.atividade.setTarefas(this.tarefas);
         this.gerenciarDeAtividades.addAtividade(this.atividade);
         this.navCtrl.pop();

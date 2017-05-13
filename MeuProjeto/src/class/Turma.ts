@@ -67,7 +67,7 @@ export class Turma extends DAOInterface implements FerramentaListaInterface {
 
     ordernarAlfabeticamenteCrescente(): void {
         this.alunos.sort((a1, a2) => {
-            return a1.getNome() > a2.getNome() ? 1 : -1;
+            return a1.nome > a2.nome ? 1 : -1;
         });
     }
 }

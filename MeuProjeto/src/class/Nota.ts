@@ -12,20 +12,4 @@ export class Nota{
         this.valor = valor;
         this.observacao = observacao;
     }
-    
-    getValor(): number{
-        return this.valor;
-    }
-    
-    setValor(valor: number): void{
-        this.valor = valor;
-    }
-    
-    getObservacao(): String{
-        return this.observacao;
-    }
-    
-    setObservacao(observacao: String): void{
-        this.observacao = observacao;
-    }
 }

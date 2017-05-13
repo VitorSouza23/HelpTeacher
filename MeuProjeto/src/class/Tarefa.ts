@@ -12,22 +12,6 @@
          this.descricao = descricao;
          this.cumprida = cumprida;
      }
-     
-     getDescricao(): String{
-         return this.descricao;
-     }
-     
-     setDescricao(descricao: String): void {
-         this.descricao = descricao;
-     }
-     
-     isCumprida(): boolean {
-         return this.cumprida;
-     }
-     
-     setCumprida(cumprida: boolean): void {
-         this.cumprida = cumprida;
-     }
  }
 
 

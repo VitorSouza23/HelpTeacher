@@ -23,7 +23,7 @@
             <ion-item *ngFor="let objeto of listaSelecao">
                 <ion-label>
                     <ion-icon name="people" item-left></ion-icon>
-                    {{objeto.turma.getNome()}}
+                    {{objeto.turma.nome}}
                 </ion-label>
                 <ion-checkbox [(ngModel)]="objeto.isSelected"></ion-checkbox>
             </ion-item>

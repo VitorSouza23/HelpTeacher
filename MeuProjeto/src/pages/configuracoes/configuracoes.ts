@@ -16,15 +16,15 @@ export class Configuracoes {
     constructor(public navCtrl: NavController, public navParams: NavParams, public gerenciadorProfessor: GerenciadorProfessor,
         public toastCtrl: ToastController) {
         this.professor = gerenciadorProfessor.getProfessor();
-        this.nome = this.professor.getNome();
-        this.areaDeAtuacao = this.professor.getAreaDeAtuacao();
-        this.escola = this.professor.getEscola();
+        this.nome = this.professor.nome;
+        this.areaDeAtuacao = this.professor.areaDeAtuacao;
+        this.escola = this.professor.escola;
     }
 
     confirmar(): void {
-        this.professor.setNome(this.nome);
-        this.professor.setAreaDeAtuacao(this.areaDeAtuacao);
-        this.professor.setEscola(this.escola);
+        this.professor.nome = this.nome;
+        this.professor.areaDeAtuacao = this.areaDeAtuacao;
+        this.professor.escola = this.escola;
         this.gerenciadorProfessor.setProfessor(this.professor);
         this.mostrarMensagemDeConfrimacao();
     }

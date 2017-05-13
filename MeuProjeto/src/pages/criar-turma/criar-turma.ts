@@ -57,7 +57,7 @@ export class CriarTurmaPage {
     confirmar(): void {
         this.turma.setNome(this.nome);
         this.turma.setTurno(this.turno);
-        this.bancoDeDados.saveTurma(this.turma).subscribe(turma => {this.turma.setID(turma._id)});
+        this.bancoDeDados.saveTurma(this.turma).subscribe(turma => {this.turma._id = turma._id});
         this.loading.create({
             content: 'Salvando...',
             duration: 2000

@@ -23,29 +23,13 @@ export class Atividade extends DAOInterface {
         this.turma = null;
     }
 
-    getNome(): String {
-        return this.nome;
-    }
-
-    setNome(nome: String): void {
-        this.nome = nome;
-    }
-
-    getDescricao(): String {
-        return this.descricao;
-    }
-
-    setDescricao(descricao: String) {
-        this.descricao = descricao;
-    }
+    
 
     getData(): String {
         return this.data
     }
 
-    setData(data: String): void {
-        this.data = data;
-    }
+    
 
     addTarefa(tarefa: Tarefa): void {
         this.taresfas.push(tarefa);
@@ -72,11 +56,5 @@ export class Atividade extends DAOInterface {
         this.taresfas = tarefas;
     }
     
-    setTurma(turma: Turma){
-        this.turma = turma;
-    }
     
-    getTurma(): Turma {
-        return this.turma;
-    }
 }

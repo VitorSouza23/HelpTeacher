@@ -88,7 +88,7 @@ export class GerenciadorTurma implements FerramentaListaInterface{
                 let aux: Turma;
                 aux = new Turma(turma.nome, turma.turno);
                 aux.setAlunos(turma.alunos);
-                aux.setID(turma._id);
+                aux._id = turma._id;
                 this.turmas.push(aux);
             });
             console.log(this.turmas);

@@ -22,14 +22,14 @@ export class AlterarAlunoPage {
     constructor(public navCtrl: NavController, public navParams: NavParams, public gerenciadorTurmas: GerenciadorTurma) {
          this.turma = this.navParams.get('turma');
          this.aluno = this.navParams.get('aluno');
-         this.nome = this.aluno.getNome();
-         this.idade = this.aluno.getIdade();
+         this.nome = this.aluno.nome;
+         this.idade = this.aluno.idade;
     }
     
     alterarAluno(): void{
         let index = this.gerenciadorTurmas.getIndexAluno(this.turma, this.aluno);
-        this.aluno.setNome(this.nome);
-        this.aluno.setIdade(this.idade);
+        this.aluno.nome = this.nome;
+        this.aluno.idade = this.idade;
         this.gerenciadorTurmas.updateAluno(this.turma, this.aluno, index);
         this.navCtrl.pop();
     }

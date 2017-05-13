@@ -12,30 +12,12 @@ export class Aluno{
     notas: Nota[];
     
     constructor(nome: String, idade: number) {
-        this.setNome(nome);
-        this.setIdade(idade);
+        this.nome = nome;
+        this.idade = idade;
         this.notas = [];
     }
 
-    public getNome(): String {
-        return this.nome;
-    }
-
-    public setNome(nome: String): void {
-        this.nome = nome;
-    }
-
-    public getIdade(): number {
-        return this.idade
-    }
-
-    public setIdade(idade: number): void {
-        this.idade = idade;
-    }
-
-    public getNotas(): Nota[] {
-        return this.notas;
-    }
+  
 
     public setNotas(notas: Nota[]): void {
         let auxNota: Nota;
@@ -55,7 +37,7 @@ export class Aluno{
 
     calcularMedia(): number {
         let soma: number = 0;
-        this.notas.forEach((nota) => soma = soma + nota.getValor());
+        this.notas.forEach((nota) => soma = soma + nota.valor);
         let media: number = soma / this.notas.length;
         return Math.round(media);
     }

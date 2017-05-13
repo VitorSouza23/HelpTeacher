@@ -42,7 +42,7 @@ export class BDService {
     }
     
     updateTurma(turma: Turma): Observable<Turma>{
-        let id: String = '&q=' + JSON.stringify({_id: turma.getID()});
+        let id: String = '&q=' + JSON.stringify({_id: turma._id});
         console.log(this.pathTurma.toString() + id);
         let turmaAux = {
             nome: turma.getNome(),
@@ -54,7 +54,7 @@ export class BDService {
     }
     
     removeTurma(turma: Turma): Observable<Turma>{
-        let id: String = '&q=' + JSON.stringify({_id: turma.getID()});
+        let id: String = '&q=' + JSON.stringify({_id: turma._id});
         console.log(this.pathTurma.toString() + id);
         return this.http.put(this.pathTurma.toString() + id.toString(), [])
             .map(dados => dados.json());

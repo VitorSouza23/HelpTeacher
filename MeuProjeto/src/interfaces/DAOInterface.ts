@@ -8,13 +8,5 @@ export class DAOInterface {
     constructor() {
         this._id = {};
     }
-
-    public setID(id: any) {
-        this._id = id;
-    }
-
-    public getID() {
-        return this._id;
-    }
 }
 
