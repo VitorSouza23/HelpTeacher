@@ -1,0 +1,91 @@
+<!--
+  Generated template for the ControleAtividade page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Controle de Atividades</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-card>
+        <ion-card-header>
+            Informações da Atividade
+        </ion-card-header>
+        <ion-list>
+            <ion-item class="input-values">
+                <ion-label floating>Nome:</ion-label>
+                <ion-input type="text" [(ngModel)]="nome"></ion-input>
+            </ion-item>
+            <ion-item class="input-values">
+                <ion-label floating>Descrição:</ion-label>
+                <ion-input type="text" [(ngModel)]="descricao"></ion-input>
+            </ion-item>
+            <ion-item class="input-values">
+                <ion-label floating>Data da Realização:</ion-label>
+                <ion-datetime displayFormat="DD/MM/YYYY - DDDD" [(ngModel)]="data"></ion-datetime>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+            Definir Turma
+        </ion-card-header>
+
+        <ion-item>
+            <ion-label>Turma</ion-label>
+            <ion-select [(ngModel)]="turma" multiple="true">
+                <ion-option *ngFor="let turma of listaTurmas" value="{{turma}}">{{turma.getNome()}}</ion-option>
+            </ion-select>
+        </ion-item>
+
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+            <ion-item class="header-button">
+                <h2>Tarefas</h2>
+                <button ion-button color="primary" round item-right icon-left (click)="addTarefa()">
+                        <ion-icon name="add-circle"></ion-icon>
+                    Adicionar
+                </button>
+            </ion-item>
+        </ion-card-header>
+        <ion-list >
+            <ion-item-sliding *ngFor="let tarefa of tarefas" #slidingItem>
+                <ion-item (click)="updateTarefa(tarefa)">
+                    <ion-label>
+                        <ion-icon name="school" item-left></ion-icon>
+                        {{tarefa.descricao}}
+                    </ion-label>
+                    <ion-checkbox item-right color="secondary" [(ngModel)]="tarefa.cumprida"></ion-checkbox>
+                </ion-item>
+                <ion-item-options side="left">
+                    <button ion-button  (click)="updateTarefa(tarefa, slidingItem)">
+                            Alterar
+                            <ion-icon name="brush"></ion-icon>
+                    </button>
+                </ion-item-options>
+
+                <ion-item-options side="right">
+                    <button ion-button color="danger" (click)="removeTarefa(tarefa, slidingItem)">
+                        Remover
+                        <ion-icon name="trash"></ion-icon>
+                    </button>
+                </ion-item-options>
+
+            </ion-item-sliding>
+
+        </ion-list>
+    </ion-card>
+    <button ion-button round full color="yellow" >Dar Notas</button>
+    <button ion-button round full (click)="confirmar()">Confirmar</button>
+    <button ion-button round full color="danger" (click)="cancelar()">Cancelar</button>
+</ion-content>

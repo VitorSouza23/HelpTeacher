@@ -26,7 +26,7 @@
 
         </ion-card-header>
         <ion-list>
-            <button ion-item class="item-list"  *ngFor="let atividade of atividades">
+            <button ion-item class="item-list"  *ngFor="let atividade of atividades" (click)="goToControleAtividade(atividade)">
                     <ion-icon name="book" item-left></ion-icon>
                 {{atividade.nome}}
             </button>

@@ -40,5 +40,9 @@ export class GerenciadorAtividades {
     setAtividades(atividades: Atividade[]){
         this.atividades = atividades;
     }
+    
+    indexOfAtividade(atividade: Atividade): number {
+        return this.atividades.indexOf(atividade);
+    }
 
 }

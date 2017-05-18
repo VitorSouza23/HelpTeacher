@@ -3,6 +3,7 @@ import {NavController, NavParams} from 'ionic-angular';
 import {GerenciadorAtividades} from '../../providers/gerenciador-atividades';
 import {Atividade} from '../../class/Atividade';
 import {CriarAtividadePage} from '../criar-atividade/criar-atividade';
+import {ControleAtividadePage} from '../controle-atividade/controle-atividade';
 /*
   Generated class for the Atividades page.
 
@@ -22,6 +23,12 @@ export class AtividadesPage {
 
     goToCriarAtividadePage(): void {
         this.navCtrl.push(CriarAtividadePage);
+    }
+    
+    goToControleAtividade(atividade: Atividade): void {
+        this.navCtrl.push(ControleAtividadePage, {
+            atividade: atividade
+        })
     }
 
 }
