@@ -17,7 +17,8 @@ import {GerenciadorAtividades} from '../providers/gerenciador-atividades';
 import {AtividadesPage} from '../pages/atividades/atividades';
 import {CriarAtividadePage} from '../pages/criar-atividade/criar-atividade';
 import {ControleAtividadePage} from '../pages/controle-atividade/controle-atividade';
-
+import {NotasPage} from '../pages/notas/notas';
+import {DarNotaPage} from '../pages/dar-nota/dar-nota';
 @NgModule({
     declarations: [
         MyApp,
@@ -32,7 +33,9 @@ import {ControleAtividadePage} from '../pages/controle-atividade/controle-ativid
         RemoverTurmasPage,
         AtividadesPage,
         CriarAtividadePage,
-        ControleAtividadePage
+        ControleAtividadePage,
+        NotasPage,
+        DarNotaPage
     ],
     imports: [
         IonicModule.forRoot(MyApp, {
@@ -53,7 +56,9 @@ import {ControleAtividadePage} from '../pages/controle-atividade/controle-ativid
         RemoverTurmasPage,
         AtividadesPage,
         CriarAtividadePage,
-        ControleAtividadePage
+        ControleAtividadePage,
+        NotasPage,
+        DarNotaPage
     ],
     providers: [
         {provide: ErrorHandler, useClass: IonicErrorHandler},

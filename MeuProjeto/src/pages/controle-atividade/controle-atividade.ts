@@ -5,6 +5,7 @@ import {Turma} from '../../class/Turma';
 import {Tarefa} from '../../class/Tarefa';
 import {GerenciadorAtividades} from '../../providers/gerenciador-atividades';
 import {GerenciadorTurma} from '../../providers/gerenciador-turma';
+import {NotasPage} from '../notas/notas';
 /*
   Generated class for the ControleAtividade page.
 
@@ -88,10 +89,16 @@ export class ControleAtividadePage {
         this.atividade.nome = this.nome;
         this.atividade.descricao = this.descricao;
         this.atividade.data = this.data
-        this.atividade.turma = this.turma;
+        this.atividade.turma = this.turma[0];
         this.atividade.setTarefas(this.tarefas);
         this.gerenciarDeAtividades.updateAtividade(this.atividade, index);
         this.navCtrl.pop();
+    }
+    
+    goToNotas(): void {
+        this.navCtrl.push(NotasPage, {
+            turma: this.atividade.turma
+        })
     }
 
     cancelar(): void {

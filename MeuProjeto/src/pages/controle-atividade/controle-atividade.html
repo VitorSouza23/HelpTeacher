@@ -41,8 +41,8 @@
 
         <ion-item>
             <ion-label>Turma</ion-label>
-            <ion-select [(ngModel)]="turma" multiple="true">
-                <ion-option *ngFor="let turma of listaTurmas" value="{{turma}}">{{turma.getNome()}}</ion-option>
+            <ion-select [(ngModel)]="turma" >
+                <ion-option *ngFor="let turma of listaTurmas" [value]="turma">{{turma.getNome()}}</ion-option>
             </ion-select>
         </ion-item>
 
@@ -59,8 +59,8 @@
             </ion-item>
         </ion-card-header>
         <ion-list >
-            <ion-item-sliding *ngFor="let tarefa of tarefas" #slidingItem>
-                <ion-item (click)="updateTarefa(tarefa)">
+            <ion-item-sliding  *ngFor="let tarefa of tarefas" #slidingItem >
+                <ion-item class="item-list" (click)="updateTarefa(tarefa)">
                     <ion-label>
                         <ion-icon name="school" item-left></ion-icon>
                         {{tarefa.descricao}}
@@ -82,10 +82,10 @@
                 </ion-item-options>
 
             </ion-item-sliding>
-
+            
         </ion-list>
     </ion-card>
-    <button ion-button round full color="yellow" >Dar Notas</button>
+    <button ion-button round full color="secondary" (click)="goToNotas()">Dar Notas</button>
     <button ion-button round full (click)="confirmar()">Confirmar</button>
     <button ion-button round full color="danger" (click)="cancelar()">Cancelar</button>
 </ion-content>

@@ -39,7 +39,7 @@ export class Aluno{
         let soma: number = 0;
         this.notas.forEach((nota) => soma = soma + nota.valor);
         let media: number = soma / this.notas.length;
-        return Math.round(media);
+        return Math.round(media) | 0;
     }
 
     alterarNota(index: number, novaNota: Nota): void {

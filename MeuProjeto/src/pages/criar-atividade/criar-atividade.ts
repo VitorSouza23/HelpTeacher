@@ -86,7 +86,7 @@ export class CriarAtividadePage {
 
     confirmar(): void {
         this.atividade = new Atividade(this.nome, this.descricao, this.data);
-        this.atividade.turma = this.turma;
+        this.atividade.turma = this.turma[0];
         this.atividade.setTarefas(this.tarefas);
         this.gerenciarDeAtividades.addAtividade(this.atividade);
         this.navCtrl.pop();

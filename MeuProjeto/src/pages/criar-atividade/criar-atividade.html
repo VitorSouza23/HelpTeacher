@@ -42,7 +42,7 @@
         <ion-item>
             <ion-label>Turma</ion-label>
             <ion-select [(ngModel)]="turma" multiple="true">
-                <ion-option *ngFor="let turma of listaTurmas" value="{{turma}}">{{turma.getNome()}}</ion-option>
+                <ion-option *ngFor="let turma of listaTurmas" [value]="turma">{{turma.getNome()}}</ion-option>
             </ion-select>
         </ion-item>
 
