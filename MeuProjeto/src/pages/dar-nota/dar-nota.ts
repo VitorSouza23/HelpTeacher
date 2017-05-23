@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, AlertController} from 'ionic-angular';
+import {NavController, NavParams, AlertController, ItemSliding} from 'ionic-angular';
 import {Aluno} from '../../class/Aluno';
 import {Nota} from '../../class/Nota';
 import {Turma} from '../../class/Turma';
@@ -24,19 +24,22 @@ export class DarNotaPage {
         this.turma = this.navParams.get('turma');
         this.notas = this.aluno.notas;
     }
-
-    addNota() {
+    
+    private openAlert(nota: Nota, nova: boolean){
         let alert = this.alertCtrl.create({
             title: 'Nota',
             inputs: [
                 {
                     name: 'valor',
                     placeholder: 'Valor',
-                    type: 'number'
+                    type: 'number',
+                    value: nota.valor.toString()
+                    
                 },
                 {
                     name: 'observacao',
-                    placeholder: 'Observação'
+                    placeholder: 'Observação',
+                    value: nota.observacao.toString()
                 }
             ],
             buttons: [
@@ -50,12 +53,32 @@ export class DarNotaPage {
                 {
                     text: 'Confirmar',
                     handler: data => {
-                        this.notas.push(new Nota(data.valor, data.observacao))
+                        nota.valor = data.valor;
+                        nota.observacao = data.observacao;
+                        if(nova == true){
+                            this.notas.push(nota);
+                        }
                     }
                 }
             ]
         });
         alert.present();
+    }
+
+    addNota() {
+        let novaNota: Nota = new Nota(7, "");
+        this.openAlert(novaNota, true);
+    }
+    
+    updateNota(nota: Nota, itemSliding: ItemSliding): void {
+        this.openAlert(nota, false);
+        itemSliding.close();
+    }
+    
+    removeNota(nota: Nota, itemSliding: ItemSliding): void {
+        let index: number = this.notas.indexOf(nota);
+        this.notas.splice(index, 1);
+        itemSliding.close();
     }
 
     confirmar(): void {

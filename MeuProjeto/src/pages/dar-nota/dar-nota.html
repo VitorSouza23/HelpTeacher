@@ -25,10 +25,27 @@
             </ion-item>
         </ion-card-header>
         <ion-list>
-            <ion-item class="item-list" *ngFor="let nota of notas" >
-                      <ion-icon name="person" item-left></ion-icon>
-                {{nota.valor}} : {{nota.observacao}}
-            </ion-item>
+            <ion-item-sliding *ngFor="let nota of notas" #slidingItem>
+                <ion-item class="item-list">
+                    <ion-icon name="person" item-left></ion-icon>
+                    {{nota.valor}} : {{nota.observacao}}
+                </ion-item>
+                <ion-item-options side="left">
+                    <button ion-button  (click)="updateNota(nota, slidingItem)">
+                            Alterar
+                            <ion-icon name="brush"></ion-icon>
+                    </button>
+                </ion-item-options>
+
+                <ion-item-options side="right">
+                    <button ion-button color="danger" (click)="removeNota(nota, slidingItem)">
+                        Remover
+                        <ion-icon name="trash"></ion-icon>
+                    </button>
+                </ion-item-options>
+            </ion-item-sliding>
+            
+
         </ion-list>
     </ion-card>
 

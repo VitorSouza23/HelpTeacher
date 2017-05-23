@@ -37,12 +37,17 @@ export class Aluno{
 
     calcularMedia(): number {
         let soma: number = 0;
-        this.notas.forEach((nota) => soma = soma + nota.valor);
-        let media: number = soma / this.notas.length;
-        return Math.round(media) | 0;
+        this.notas.forEach((nota) => soma = parseFloat(soma.toString()) + parseFloat(nota.valor.toString()));
+        if (this.notas.length == 0){
+            return 0;
+        }else{
+            let media: number = soma / this.notas.length;
+        return Math.round(media);
+        }
+        
     }
 
-    alterarNota(index: number, novaNota: Nota): void {
+    alterarNota(novaNota: Nota, index: number): void {
         this.notas[index] = novaNota;
     }
 

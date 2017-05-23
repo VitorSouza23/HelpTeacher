@@ -19,6 +19,7 @@ import {CriarAtividadePage} from '../pages/criar-atividade/criar-atividade';
 import {ControleAtividadePage} from '../pages/controle-atividade/controle-atividade';
 import {NotasPage} from '../pages/notas/notas';
 import {DarNotaPage} from '../pages/dar-nota/dar-nota';
+
 @NgModule({
     declarations: [
         MyApp,
@@ -40,7 +41,8 @@ import {DarNotaPage} from '../pages/dar-nota/dar-nota';
     imports: [
         IonicModule.forRoot(MyApp, {
             dayNames: ['Domingo', 'Segunda-feria', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado']
-        })
+        }),
+
     ],
     bootstrap: [IonicApp],
     entryComponents: [
