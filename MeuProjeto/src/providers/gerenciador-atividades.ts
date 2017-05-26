@@ -1,7 +1,9 @@
 import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
 import {Atividade} from '../class/Atividade';
-
+import {Tarefa} from '../class/Tarefa';
+import {BDService} from './bd-service';
+import {GerenciadorTurma} from './gerenciador-turma';
 /*
   Generated class for the GerenciadorAtividades provider.
 
@@ -12,8 +14,9 @@ import {Atividade} from '../class/Atividade';
 export class GerenciadorAtividades {
     private atividades: Atividade[];
     
-    constructor() {
+    constructor(private bancoDeDados: BDService, private gerenciadorTurma: GerenciadorTurma) {
         this.atividades = [];
+         this.recuperarAtividadesDoBanco();
     }
     
     addAtividade(atividade: Atividade): void {
@@ -43,6 +46,23 @@ export class GerenciadorAtividades {
     
     indexOfAtividade(atividade: Atividade): number {
         return this.atividades.indexOf(atividade);
+    }
+    
+    recuperarAtividadesDoBanco(): void {
+        this.bancoDeDados.getAtividades().subscribe(dados => {
+            dados.forEach((atividade) => {
+                console.log(atividade);
+                let aux: Atividade;
+                aux = new Atividade(atividade.nome, atividade.descricao, atividade.data);
+                atividade.tarefas.forEach((tarefa) => {
+                    aux.taresfas.push(new Tarefa(tarefa.descricao, tarefa.cumprida));
+                })
+                aux.turma = this.gerenciadorTurma.getTurmaPorID(atividade.idTurma);
+                aux._id = atividade._id;
+                this.atividades.push(aux);
+            });
+            console.log(this.atividades); 
+        });
     }
 
 }

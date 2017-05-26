@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {NavController, NavParams, LoadingController} from 'ionic-angular';
 import {GerenciadorAtividades} from '../../providers/gerenciador-atividades';
 import {Atividade} from '../../class/Atividade';
 import {CriarAtividadePage} from '../criar-atividade/criar-atividade';
@@ -17,8 +17,13 @@ import {ControleAtividadePage} from '../controle-atividade/controle-atividade';
 export class AtividadesPage {
     private atividades: Atividade[];
     
-    constructor(public navCtrl: NavController, public navParams: NavParams, private gerenciadorDeAtividades: GerenciadorAtividades) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private gerenciadorDeAtividades: GerenciadorAtividades,
+        private loadingCtrl: LoadingController) {
         this.atividades = this.gerenciadorDeAtividades.getAtividades();
+         this.loadingCtrl.create({
+            content: "Por favor aguarde...",
+            duration: 3000
+        }).present();
     }
 
     goToCriarAtividadePage(): void {

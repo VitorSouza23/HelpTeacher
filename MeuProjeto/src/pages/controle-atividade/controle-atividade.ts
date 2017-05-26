@@ -6,6 +6,7 @@ import {Tarefa} from '../../class/Tarefa';
 import {GerenciadorAtividades} from '../../providers/gerenciador-atividades';
 import {GerenciadorTurma} from '../../providers/gerenciador-turma';
 import {NotasPage} from '../notas/notas';
+import {BDService} from '../../providers/bd-service';
 /*
   Generated class for the ControleAtividade page.
 
@@ -26,7 +27,7 @@ export class ControleAtividadePage {
     private listaTurmas: Turma[];
     constructor(public navCtrl: NavController, public navParams: NavParams,
         private gerenciarDeAtividades: GerenciadorAtividades, private gerenciadorDeTurma: GerenciadorTurma,
-        private alertCtrl: AlertController) {
+        private alertCtrl: AlertController, private bancoDeDados: BDService) {
         this.atividade = this.navParams.get('atividade');
         this.nome = this.atividade.nome;
         this.data = this.atividade.data;
@@ -89,8 +90,10 @@ export class ControleAtividadePage {
         this.atividade.nome = this.nome;
         this.atividade.descricao = this.descricao;
         this.atividade.data = this.data
-        this.atividade.turma = this.turma[0];
+        this.atividade.turma = this.turma;
         this.atividade.setTarefas(this.tarefas);
+        console.log(this.atividade);
+        this.bancoDeDados.updateAtividade(this.atividade).subscribe(atividade => console.log(atividade));
         this.gerenciarDeAtividades.updateAtividade(this.atividade, index);
         this.navCtrl.pop();
     }

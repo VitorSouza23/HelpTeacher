@@ -19,6 +19,7 @@ import {CriarAtividadePage} from '../pages/criar-atividade/criar-atividade';
 import {ControleAtividadePage} from '../pages/controle-atividade/controle-atividade';
 import {NotasPage} from '../pages/notas/notas';
 import {DarNotaPage} from '../pages/dar-nota/dar-nota';
+import {Storage} from '@ionic/storage';
 
 @NgModule({
     declarations: [
@@ -67,7 +68,8 @@ import {DarNotaPage} from '../pages/dar-nota/dar-nota';
         GerenciadorTurma,
         GerenciadorProfessor,
         BDService,
-        GerenciadorAtividades
+        GerenciadorAtividades,
+        Storage
     ]
 })
 export class AppModule {}

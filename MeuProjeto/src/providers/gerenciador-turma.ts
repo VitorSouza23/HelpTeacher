@@ -68,6 +68,16 @@ export class GerenciadorTurma implements FerramentaListaInterface{
         return this.turmas[index];
     }
     
+    getTurmaPorID(id: any): Turma{
+        let aux: Turma = null;
+        this.turmas.forEach((turma) => {
+            if (turma._id.$oid == id.$oid){
+                aux = turma;
+            }
+        })
+        return aux;
+    }
+    
     getIndexAluno(turma: Turma,aluno: Aluno): number {
         return turma.getAlunos().indexOf(aluno);
     }

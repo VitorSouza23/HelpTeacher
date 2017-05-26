@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, AlertController, ItemSliding} from 'ionic-angular';
+import {NavController, NavParams, AlertController, ItemSliding, LoadingController} from 'ionic-angular';
 import {Atividade} from '../../class/Atividade';
 import {Turma} from '../../class/Turma';
 import {Tarefa} from '../../class/Tarefa';
 import {GerenciadorAtividades} from '../../providers/gerenciador-atividades';
 import {GerenciadorTurma} from '../../providers/gerenciador-turma';
+import {BDService} from '../../providers/bd-service';
 
 /*
   Generated class for the CriarAtividade page.
@@ -27,7 +28,7 @@ export class CriarAtividadePage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
         private gerenciarDeAtividades: GerenciadorAtividades, private gerenciadorDeTurma: GerenciadorTurma,
-        private alertCtrl: AlertController) {
+        private alertCtrl: AlertController, private bancoDeDados: BDService, private loading: LoadingController) {
         this.nome = "";
         this.data = new Date().toISOString();
         this.descricao = "";
@@ -86,10 +87,18 @@ export class CriarAtividadePage {
 
     confirmar(): void {
         this.atividade = new Atividade(this.nome, this.descricao, this.data);
-        this.atividade.turma = this.turma[0];
-        this.atividade.setTarefas(this.tarefas);
-        this.gerenciarDeAtividades.addAtividade(this.atividade);
-        this.navCtrl.pop();
+        this.atividade.turma = this.turma;
+        this.atividade.taresfas = this.tarefas;
+        this.bancoDeDados.saveAtividade(this.atividade).subscribe(atividade => this.atividade._id = atividade._id);
+        this.loading.create({
+            content: 'Salvando...',
+            duration: 2000
+        }).present();
+        setTimeout(() => {
+            this.gerenciarDeAtividades.addAtividade(this.atividade);
+            console.log(this.atividade);
+            this.navCtrl.pop();
+        }, 2000);
     }
 
     cancelar(): void {

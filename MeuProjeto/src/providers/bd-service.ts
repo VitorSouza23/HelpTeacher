@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import {Turma} from '../class/Turma';
+import {Atividade} from '../class/Atividade';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Rx';
 /*
@@ -11,26 +12,23 @@ import {Observable} from 'rxjs/Rx';
 */
 @Injectable()
 export class BDService {
-    //private pathAluno: String;
+    
     private pathTurma: String;
+    private pathAtividade: String;
 
     constructor(public http: Http) {
-        //this.pathAluno = "https://api.mlab.com/api/1/databases/helpteacher/aluno?apiKey=BYW9tuydSdGMLqEVKZ4slDdcd7RxyAVb";
         this.pathTurma = "https://api.mlab.com/api/1/databases/helpteacher/collections/turma?apiKey=BYW9tuydSdGMLqEVKZ4slDdcd7RxyAVb";
+        this.pathAtividade = "https://api.mlab.com/api/1/databases/helpteacher/collections/atividade?apiKey=BYW9tuydSdGMLqEVKZ4slDdcd7RxyAVb"
     }
 
-    /*saveAluno(aluno: Aluno): Observable<Aluno[]>{
-        let alunoJSON: any = {nome: aluno.getNome(), idade: aluno.getIdade()};
-        return this.http.post(this.pathAluno.toString(), alunoJSON).map((res: Response) => res.json());
-    }*/
 
     saveTurma(turma: Turma): Observable<Turma> {
         let headers = new Headers({'Content-Type': 'application/json'});
         let options = new RequestOptions({headers: headers});
         let turmaAux = {
-            nome: turma.getNome(),
-            turno: turma.getTurno(),
-            alunos: turma.getAlunos()
+            nome: turma.nome,
+            turno: turma.turno,
+            alunos: turma.alunos
         }
         return this.http.post(this.pathTurma.toString(), turmaAux, options)
             .map(dados => dados.json());
@@ -57,6 +55,49 @@ export class BDService {
         let id: String = '&q=' + JSON.stringify({_id: turma._id});
         console.log(this.pathTurma.toString() + id);
         return this.http.put(this.pathTurma.toString() + id.toString(), [])
+            .map(dados => dados.json());
+    }
+    
+    getTurma(idTurma: any): Observable<Turma>{
+        let headers = new Headers({'Content-Type': 'application/json'});
+        let options = new RequestOptions({headers: headers});
+        let id: String = '&q=' + JSON.stringify({_id: idTurma});
+        console.log(this.pathTurma.toString() + id);
+        return this.http.get(this.pathTurma.toString() + id.toString(), options)
+            .map(dados => dados.json());
+    }
+    
+    saveAtividade(atividade: Atividade): Observable<Atividade> {
+        let headers = new Headers({'Content-Type': 'application/json'});
+        let options = new RequestOptions({headers: headers});
+        let atividadeAux: any = {
+            nome: atividade.nome,
+            descricao: atividade.descricao,
+            data: atividade.data,
+            tarefas: atividade.taresfas,
+            idTurma: atividade.turma._id
+        }
+        
+        return this.http.post(this.pathAtividade.toString(), atividadeAux, options)
+            .map(dados => dados.json());
+    }
+    
+    getAtividades(): Observable<any[]>{
+        return this.http.get(this.pathAtividade.toString())
+            .map(dados => dados.json());
+    }
+    
+    updateAtividade(atividade: Atividade): Observable<any>{
+        let id: String = '&q=' + JSON.stringify({_id: atividade._id});
+        console.log(this.pathTurma.toString() + id);
+        let atividadeAux: any = {
+            nome: atividade.nome,
+            descricao: atividade.descricao,
+            data: atividade.data,
+            tarefas: atividade.taresfas,
+            idTurma: atividade.turma._id
+        }
+        return this.http.put(this.pathAtividade.toString() + id.toString(), atividadeAux)
             .map(dados => dados.json());
     }
 
