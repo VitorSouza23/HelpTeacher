@@ -4,6 +4,7 @@ import {GerenciadorAtividades} from '../../providers/gerenciador-atividades';
 import {Atividade} from '../../class/Atividade';
 import {CriarAtividadePage} from '../criar-atividade/criar-atividade';
 import {ControleAtividadePage} from '../controle-atividade/controle-atividade';
+import {RemoverAtividadesPage} from '../remover-atividades/remover-atividades';
 /*
   Generated class for the Atividades page.
 
@@ -28,6 +29,10 @@ export class AtividadesPage {
 
     goToCriarAtividadePage(): void {
         this.navCtrl.push(CriarAtividadePage);
+    }
+    
+    goToRemoverAtividadesPage(): void {
+        this.navCtrl.push(RemoverAtividadesPage);
     }
     
     goToControleAtividade(atividade: Atividade): void {

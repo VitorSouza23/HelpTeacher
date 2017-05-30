@@ -78,7 +78,7 @@ export class CriarAtividadePage {
         }).present();
         itemSlid.close();
     }
-    
+
     removeTarefa(tarefa: Tarefa, itemSlid: ItemSliding): void {
         let index: number = this.tarefas.indexOf(tarefa);
         this.tarefas.splice(index, 1);
@@ -89,16 +89,25 @@ export class CriarAtividadePage {
         this.atividade = new Atividade(this.nome, this.descricao, this.data);
         this.atividade.turma = this.turma;
         this.atividade.taresfas = this.tarefas;
-        this.bancoDeDados.saveAtividade(this.atividade).subscribe(atividade => this.atividade._id = atividade._id);
-        this.loading.create({
-            content: 'Salvando...',
-            duration: 2000
-        }).present();
-        setTimeout(() => {
-            this.gerenciarDeAtividades.addAtividade(this.atividade);
-            console.log(this.atividade);
-            this.navCtrl.pop();
-        }, 2000);
+        try {
+            this.bancoDeDados.saveAtividade(this.atividade).subscribe(atividade => this.atividade._id = atividade._id);
+            this.loading.create({
+                content: 'Salvando...',
+                duration: 2000
+            }).present();
+            setTimeout(() => {
+                this.gerenciarDeAtividades.addAtividade(this.atividade);
+                console.log(this.atividade);
+                this.navCtrl.pop();
+            }, 2000);
+        } catch (erro) {
+            this.alertCtrl.create({
+                title: 'Ops!',
+                subTitle: 'Selecione uma Turma antes de criar a Atividade.',
+                buttons: ['Entendi!']
+            }).present();
+            console.log(erro);
+        }
     }
 
     cancelar(): void {

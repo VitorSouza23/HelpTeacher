@@ -26,7 +26,7 @@
 
         </ion-card-header>
         <ion-list>
-            <button ion-item class="item-list"  *ngFor="let atividade of atividades" (click)="goToControleAtividade(atividade)">
+            <button ion-item class="item-list"  *ngFor="let atividade of atividades" (click)="goToControleAtividade(atividade)" (press)="goToRemoverAtividadesPage()">
                     <ion-icon name="book" item-left></ion-icon>
                 {{atividade.nome}}
             </button>
@@ -38,7 +38,7 @@
         </button>
         <ion-fab-list side="top">
             <button ion-fab color="secondary" (click)="goToCriarAtividadePage()"><ion-icon name="add-circle"></ion-icon></button>
-            <button ion-fab color="danger" ><ion-icon name="backspace"></ion-icon></button>
+            <button ion-fab color="danger" (click)="goToRemoverAtividadesPage()"><ion-icon name="backspace"></ion-icon></button>
             <button ion-fab color="dark" ><ion-icon name="shuffle"></ion-icon></button>
         </ion-fab-list>
     </ion-fab>

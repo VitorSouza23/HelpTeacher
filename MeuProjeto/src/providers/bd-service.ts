@@ -100,6 +100,13 @@ export class BDService {
         return this.http.put(this.pathAtividade.toString() + id.toString(), atividadeAux)
             .map(dados => dados.json());
     }
+    
+    removeAtividade(atividade: Atividade): Observable<any>{
+        let id: String = '&q=' + JSON.stringify({_id: atividade._id});
+        console.log(this.pathAtividade.toString() + id);
+        return this.http.put(this.pathAtividade.toString() + id.toString(), [])
+            .map(dados => dados.json());
+    }
 
 
 

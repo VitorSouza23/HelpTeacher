@@ -12,7 +12,7 @@ import {GerenciadorTurma} from './gerenciador-turma';
 */
 @Injectable()
 export class GerenciadorAtividades {
-    private atividades: Atividade[];
+    atividades: Atividade[];
     
     constructor(private bancoDeDados: BDService, private gerenciadorTurma: GerenciadorTurma) {
         this.atividades = [];
