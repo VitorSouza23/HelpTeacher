@@ -1,3 +1,23 @@
 page-dar-nota {
+    .ion-card-header-aluno{
+        background-color: map-get($colors, toast-yellow);
+        font-size: 18px;
+        color: white;
+    }
 
+    .header-button-aluno{
+        background-color: map-get($colors, toast-yellow);
+        font-size: 18px;
+    }
+
+    .header-button-aluno h2{
+        color: white;
+        font-size: 18px;
+    }
+    
+    .item-list-aluno {
+        border-style: solid;
+        border-width: 1px;
+        border-color: map-get($colors, toast-yellow);
+    }
 }

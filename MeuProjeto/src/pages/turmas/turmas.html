@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-    <ion-navbar>
+    <ion-navbar >
         <ion-title>Turmas</ion-title>
     </ion-navbar>
 
@@ -14,9 +14,9 @@
 
 
 <ion-content padding>
-    <ion-card>
-        <ion-card-header>
-            <ion-item class="header-button">
+    <ion-card >
+        <ion-card-header class="ion-card-header-turmas">
+            <ion-item class="header-button-turmas">
                 <h2>Turmas Atuais</h2>
                 <button ion-button color="secondary" round item-right icon-left (click)="goToCriarTurma()">
                         <ion-icon name="add-circle"></ion-icon>
@@ -26,7 +26,7 @@
 
         </ion-card-header>
         <ion-list>
-            <button ion-item class="item-list" *ngFor="let turma of listaTurmas" (click)="goToAlterarTurma(turma)" (press)="eventoPressionar($event)">
+            <button ion-item class="item-list-turmas" *ngFor="let turma of listaTurmas" (click)="goToAlterarTurma(turma)" (press)="eventoPressionar($event)">
                     <ion-icon name="people" item-left></ion-icon>
                 {{turma.nome}}
             </button>

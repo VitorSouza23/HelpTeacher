@@ -15,15 +15,15 @@
 
 <ion-content padding>
     <ion-card>
-        <ion-card-header>
+        <ion-card-header class="ion-card-header-aluno">
             Informações do Aluno
         </ion-card-header>
         <ion-list>
-            <ion-item class="input-values">
+            <ion-item class="input-values-aluno">
                 <ion-label floating>Nome:</ion-label>
-                <ion-input type="text" [(ngModel)]="nome"></ion-input>
+                <ion-input clearInput="true" type="text" [(ngModel)]="nome"></ion-input>
             </ion-item>
-            <ion-item class="input-values">
+            <ion-item class="input-values-aluno">
                 <ion-label floating>Idade:</ion-label>
                 <ion-input type="number" [(ngModel)]="idade"></ion-input>
             </ion-item>

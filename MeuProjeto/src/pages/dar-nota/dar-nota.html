@@ -15,8 +15,8 @@
 
 <ion-content padding>
     <ion-card>
-        <ion-card-header >
-            <ion-item class="header-button">
+        <ion-card-header class="ion-card-header-aluno">
+            <ion-item class="header-button-aluno">
                 <h2>{{aluno.nome}}</h2>
                 <button ion-button round item-right icon-left (click)="addNota()">
                         <ion-icon name="add-circle"></ion-icon>
@@ -26,7 +26,7 @@
         </ion-card-header>
         <ion-list>
             <ion-item-sliding *ngFor="let nota of notas" #slidingItem>
-                <ion-item class="item-list">
+                <ion-item class="item-list-aluno">
                     <ion-icon name="person" item-left></ion-icon>
                     {{nota.valor}} : {{nota.observacao}}
                 </ion-item>

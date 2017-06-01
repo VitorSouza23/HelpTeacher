@@ -4,7 +4,7 @@ import {StatusBar, Splashscreen} from 'ionic-native';
 import {PaginaPrincipal} from '../pages/pagina-principal/pagina-principal';
 import {Configuracoes} from '../pages/configuracoes/configuracoes';
 import {GerenciadorTurma} from '../providers/gerenciador-turma';
-
+import * as moment from 'moment';
 
 
 
@@ -26,6 +26,9 @@ export class MyApp {
             {title: 'Menu Principal', component: PaginaPrincipal},
             {title: 'Configurações', component: Configuracoes}
         ];
+        moment.updateLocale('en', {
+            weekdays : ['Domingo', 'Segunda-feria', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado']
+        })
     }
 
     initializeApp() {

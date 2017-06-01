@@ -1,3 +1,13 @@
 page-alterar-aluno {
+    .ion-card-header-aluno{
+        background-color: map-get($colors, toast-yellow);
+        font-size: 18px;
+        color: white;
+    }
 
+    .input-values-aluno{
+        border-style: solid;
+        border-width: 1px;
+        border-color: map-get($colors, toast-yellow);
+    }
 }

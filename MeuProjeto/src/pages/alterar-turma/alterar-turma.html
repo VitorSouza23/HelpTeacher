@@ -15,15 +15,15 @@
 
 <ion-content padding>
     <ion-card>
-        <ion-card-header>
+        <ion-card-header class="ion-card-header-turmas">
             Informações da Turma
         </ion-card-header>
         <ion-list>
-            <ion-item class="input-values">
+            <ion-item class="input-values-turmas">
                 <ion-label floating>Nome da Turma:</ion-label>
                 <ion-input type="text" [(ngModel)]="nome"></ion-input>
             </ion-item>
-            <ion-item class="ion-select-lable">
+            <ion-item class="ion-select-lable-turmas">
                 <ion-label>Trurno</ion-label>
                 <ion-select [(ngModel)]="turno">
                     <ion-option value="Matutino">Matutino</ion-option>
@@ -36,8 +36,8 @@
     </ion-card>
 
     <ion-card>
-        <ion-card-header>
-            <ion-item class="header-button">
+        <ion-card-header class="ion-card-header-aluno">
+            <ion-item class="header-button-aluno">
                 <h2>Alunos</h2>
                 <button ion-button color="primary" round item-right icon-left (click)="goToCriarAluno()">
                         <ion-icon name="add-circle"></ion-icon>
@@ -46,7 +46,7 @@
             </ion-item>
         </ion-card-header>
         <ion-list>
-            <button ion-item class="item-list" *ngFor="let aluno of turma.getAlunos()" (click)="goToAlterarAluno(aluno)" (press)="eventoPressionar($event)">
+            <button ion-item class="item-list-alunos" *ngFor="let aluno of turma.getAlunos()" (click)="goToAlterarAluno(aluno)" (press)="eventoPressionar($event)">
                     <ion-icon name="person" item-left></ion-icon>
                 {{aluno.nome}}
             </button>

@@ -21,11 +21,11 @@
         <ion-list>
             <ion-item class="input-values">
                 <ion-label floating>Nome:</ion-label>
-                <ion-input type="text" [(ngModel)]="nome"></ion-input>
+                <ion-input clearInput="true" type="text" [(ngModel)]="nome"></ion-input>
             </ion-item>
             <ion-item class="input-values">
                 <ion-label floating>Descrição:</ion-label>
-                <ion-input type="text" [(ngModel)]="descricao"></ion-input>
+                <ion-input clearInput="true" type="text" [(ngModel)]="descricao"></ion-input>
             </ion-item>
             <ion-item class="input-values">
                 <ion-label floating>Data da Realização:</ion-label>
@@ -35,11 +35,11 @@
     </ion-card>
 
     <ion-card>
-        <ion-card-header>
+        <ion-card-header class="ion-card-header-turmas">
             Definir Turma
         </ion-card-header>
 
-        <ion-item>
+        <ion-item class="item-select">
             <ion-label>Turma</ion-label>
             <ion-select [(ngModel)]="turma">
                 <ion-option *ngFor="let turma of listaTurmas" [value]="turma">{{turma.getNome()}}</ion-option>

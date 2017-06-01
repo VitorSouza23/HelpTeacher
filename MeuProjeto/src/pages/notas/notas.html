@@ -15,11 +15,11 @@
 
 <ion-content padding>
     <ion-card>
-        <ion-card-header>
+        <ion-card-header class="ion-card-header-turmas">
             Turma: {{turma.nome}}
         </ion-card-header>
         <ion-list>
-            <ion-item class="item-list" *ngFor="let aluno of alunos" (click)="goToDarNota(aluno)">
+            <ion-item class="item-list-turmas" *ngFor="let aluno of alunos" (click)="goToDarNota(aluno)">
                       <ion-icon name="person" item-left></ion-icon>
                 {{aluno.nome}}
                 <ion-badge item-right>Média: {{aluno.calcularMedia()}}</ion-badge>

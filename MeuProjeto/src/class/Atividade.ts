@@ -6,6 +6,7 @@
 import {DAOInterface} from '../interfaces/DAOInterface';
 import {Turma} from '../class/Turma';
 import {Tarefa} from '../class/Tarefa';
+import * as moment from 'moment';
 
 export class Atividade extends DAOInterface {
     nome: String;
@@ -27,6 +28,10 @@ export class Atividade extends DAOInterface {
 
     getData(): String {
         return this.data
+    }
+    
+    getDataInFormat(): String {
+        return moment(this.data).format('DD/MM/YYYY - dddd');
     }
 
     

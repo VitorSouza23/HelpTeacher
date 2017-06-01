@@ -35,11 +35,11 @@
     </ion-card>
 
     <ion-card>
-        <ion-card-header>
+        <ion-card-header class="ion-card-header-turmas">
             Definir Turma
         </ion-card-header>
 
-        <ion-item>
+        <ion-item class="item-select">
             <ion-label>Turma</ion-label>
             <ion-select [(ngModel)]="turma">
                 <ion-option *ngFor="let turma of listaTurmas" [value]="turma">{{turma.getNome()}}</ion-option>

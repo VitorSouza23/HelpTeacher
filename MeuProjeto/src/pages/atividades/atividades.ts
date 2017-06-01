@@ -5,6 +5,7 @@ import {Atividade} from '../../class/Atividade';
 import {CriarAtividadePage} from '../criar-atividade/criar-atividade';
 import {ControleAtividadePage} from '../controle-atividade/controle-atividade';
 import {RemoverAtividadesPage} from '../remover-atividades/remover-atividades';
+import * as moment from 'moment';
 /*
   Generated class for the Atividades page.
 
@@ -25,6 +26,7 @@ export class AtividadesPage {
             content: "Por favor aguarde...",
             duration: 3000
         }).present();
+        
     }
 
     goToCriarAtividadePage(): void {

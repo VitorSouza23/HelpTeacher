@@ -1,3 +1,42 @@
 page-criar-turma {
-
+    .ion-card-header-turmas{
+        background-color: map-get($colors, blue);
+        font-size: 18px;
+        color: white;
+    }
+    
+    .input-values-turmas{
+        border-style: solid;
+        border-width: 1px;
+        border-color: map-get($colors, blue);
+    }
+    
+    .ion-select-lable-turmas{
+        border-style: solid;
+        border-width: 1px;
+        border-color: map-get($colors, blue);
+        height: 75px;
+    }
+    
+    .ion-card-header-aluno {
+        background-color: map-get($colors, toast-yellow);
+        font-size: 18px;
+        color: white;
+    }
+    
+     .header-button-aluno{
+        background-color: map-get($colors, toast-yellow);
+        font-size: 18px;
+    }
+    
+    .header-button-aluno h2{
+        color: white;
+        font-size: 18px;
+    }
+    
+    .item-list-alunos{
+        border-style: solid;
+        border-width: 1px;
+        border-color: map-get($colors, toast-yellow);
+    }
 }

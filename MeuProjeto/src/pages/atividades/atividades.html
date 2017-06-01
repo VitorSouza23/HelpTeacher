@@ -28,7 +28,7 @@
         <ion-list>
             <button ion-item class="item-list"  *ngFor="let atividade of atividades" (click)="goToControleAtividade(atividade)" (press)="goToRemoverAtividadesPage()">
                     <ion-icon name="book" item-left></ion-icon>
-                {{atividade.nome}}
+                {{atividade.nome}} : {{atividade.getDataInFormat()}}
             </button>
         </ion-list>
     </ion-card>
