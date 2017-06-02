@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, ToastController} from 'ionic-angular';
+import {NavController, NavParams, ToastController, AlertController} from 'ionic-angular';
 import {GerenciadorProfessor} from '../../providers/gerenciador-professor';
 import {Professor} from '../../class/Professor'
 
@@ -14,11 +14,26 @@ export class Configuracoes {
     private escola: String;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public gerenciadorProfessor: GerenciadorProfessor,
-        public toastCtrl: ToastController) {
-        this.professor = gerenciadorProfessor.getProfessor();
-        this.nome = this.professor.nome;
-        this.areaDeAtuacao = this.professor.areaDeAtuacao;
-        this.escola = this.professor.escola;
+        public toastCtrl: ToastController, private alertCtrl: AlertController) {
+        try {
+            this.professor = gerenciadorProfessor.getProfessor();
+            this.nome = this.professor.nome;
+            this.areaDeAtuacao = this.professor.areaDeAtuacao;
+            this.escola = this.professor.escola;
+        } catch (e) {
+            this.alertCtrl.create({
+                title: 'Ops!',
+                message: 'Ocorreu um erro, mas já estamos consertando!...',
+                buttons: [{
+                    text: 'OK'
+                }]
+            }).present();
+            setTimeout(() => {
+                window.location.reload();
+            }, 3000);
+        }
+
+
     }
 
     confirmar(): void {
@@ -33,9 +48,7 @@ export class Configuracoes {
         this.toastCtrl.create({
             message: 'Dados atualizados com sucesso!',
             duration: 3000,
-            position: 'middle',
-            showCloseButton: true,
-            closeButtonText: 'fechar'
+            position: 'middle'
         }).present();
     }
 }

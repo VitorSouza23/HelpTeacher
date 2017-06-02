@@ -15,10 +15,10 @@ export class GerenciadorProfessor {
         //this.professor = new Professor('Andréa','Ensino Fundamental','E.M.E.B Professor Trajano');
         storage.get('professor').then((professor:Professor) =>{
             console.log(professor);
-            if (professor != null){
+            if (professor != undefined){
                 this.professor = professor;
             }else{
-                this.professor = new Professor("", "", "");
+                throw new Error();
             }
         })
     }

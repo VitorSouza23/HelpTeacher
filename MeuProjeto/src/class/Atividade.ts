@@ -31,7 +31,7 @@ export class Atividade extends DAOInterface {
     }
     
     getDataInFormat(): String {
-        return moment(this.data).format('DD/MM/YYYY - dddd');
+        return moment(this.data).add(1, 'days').format('DD/MM/YYYY - dddd');
     }
 
     

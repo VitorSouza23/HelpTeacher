@@ -8,6 +8,7 @@ import {AlterarAlunoPage} from '../alterar-aluno/alterar-aluno';
 import {RemoverAlunosPage} from '../remover-alunos/remover-alunos';
 import {BDService} from '../../providers/bd-service';
 
+
 /*
   Generated class for the AlterarTurma page.
 
@@ -66,12 +67,13 @@ export class AlterarTurmaPage {
         this.navCtrl.pop();
     }
     
+    
+    
     eventoPressionar(e): void{
         this.goToRemoverAlunos();
     }
 
     cancelar(): void {
-        this.gerenciadorDeTurma.recuperarTurmasDoBanco();
         this.navCtrl.pop();
     }
 }

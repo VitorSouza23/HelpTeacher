@@ -3,6 +3,7 @@ import {NavController, NavParams} from 'ionic-angular';
 import {Aluno} from '../../class/Aluno';
 import {GerenciadorTurma} from '../../providers/gerenciador-turma';
 import {Turma} from '../../class/Turma';
+import {DarNotaPage} from '../dar-nota/dar-nota';
 /*
   Generated class for the AlterarAluno page.
 
@@ -36,6 +37,13 @@ export class AlterarAlunoPage {
     
     cancelar(): void{
         this.navCtrl.pop();
+    }
+    
+    goToDarNotas(): void {
+        this.navCtrl.push(DarNotaPage, {
+            aluno: this.aluno,
+            turma: this.turma
+        })
     }
 
     ionViewDidLoad(): void {

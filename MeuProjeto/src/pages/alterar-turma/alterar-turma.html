@@ -49,10 +49,11 @@
             <button ion-item class="item-list-alunos" *ngFor="let aluno of turma.getAlunos()" (click)="goToAlterarAluno(aluno)" (press)="eventoPressionar($event)">
                     <ion-icon name="person" item-left></ion-icon>
                 {{aluno.nome}}
+                <ion-badge item-right>Média: {{aluno.calcularMedia()}}</ion-badge>
             </button>
         </ion-list>
     </ion-card>
-
+    
     <button ion-button round full (click)="confirmar()">Confirmar</button>
     <button ion-button round full color="danger" (click)="cancelar()">Cancelar</button>
 
