@@ -4,6 +4,7 @@ import {Atividade} from '../class/Atividade';
 import {Tarefa} from '../class/Tarefa';
 import {BDService} from './bd-service';
 import {GerenciadorTurma} from './gerenciador-turma';
+import * as moment from 'moment';
 /*
   Generated class for the GerenciadorAtividades provider.
 
@@ -63,6 +64,16 @@ export class GerenciadorAtividades {
             });
             console.log(this.atividades); 
         });
+    }
+    
+    ordenarAtividadesPorData(): void {
+        this.atividades.sort((a1, a2) => {
+            if (moment(a1.data).isAfter(moment(a2.data))){
+                return 1;
+            }else{
+               return - 1;
+            }
+        })
     }
 
 }

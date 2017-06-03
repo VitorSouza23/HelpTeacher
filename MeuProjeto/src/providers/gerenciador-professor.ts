@@ -18,9 +18,9 @@ export class GerenciadorProfessor {
             if (professor != undefined){
                 this.professor = professor;
             }else{
-                throw new Error();
+                this.professor = new Professor("", "", "");
             }
-        })
+        }, () => window.location.reload());
     }
   
 
