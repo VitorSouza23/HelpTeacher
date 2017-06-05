@@ -7,7 +7,7 @@ import {GerenciadorTurma} from '../../providers/gerenciador-turma';
 import {AlterarAlunoPage} from '../alterar-aluno/alterar-aluno';
 import {RemoverAlunosPage} from '../remover-alunos/remover-alunos';
 import {BDService} from '../../providers/bd-service';
-
+import {TabelaNotasPage} from '../tabela-notas/tabela-notas';
 
 /*
   Generated class for the AlterarTurma page.
@@ -67,7 +67,11 @@ export class AlterarTurmaPage {
         this.navCtrl.pop();
     }
     
-    
+    goToTabelaNotas(): void {
+        this.navCtrl.push(TabelaNotasPage, {
+            turma: this.turma
+        })
+    }
     
     eventoPressionar(e): void{
         this.goToRemoverAlunos();

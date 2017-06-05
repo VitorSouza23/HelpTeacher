@@ -1,0 +1,9 @@
+page-tabela-notas {
+    ion-grid ion-row ion-col{
+        border-style: solid;
+        border-width: 2px;
+        border-color: map-get($colors, primary);
+        border-radius: 5px;
+        text-align: center;
+    }
+}

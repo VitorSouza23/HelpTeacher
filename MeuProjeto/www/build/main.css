@@ -43113,6 +43113,14 @@ page-remover-turmas .ion-card-header-turmas {
   color: white;
 }
 
+page-tabela-notas ion-grid ion-row ion-col {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #387ef5;
+  border-radius: 5px;
+  text-align: center;
+}
+
 page-turmas .ion-card-header-turmas {
   background-color: #0066ff;
   font-size: 18px;

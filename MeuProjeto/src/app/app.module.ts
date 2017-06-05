@@ -21,6 +21,7 @@ import {NotasPage} from '../pages/notas/notas';
 import {DarNotaPage} from '../pages/dar-nota/dar-nota';
 import {Storage} from '@ionic/storage';
 import {RemoverAtividadesPage} from '../pages/remover-atividades/remover-atividades';
+import {TabelaNotasPage} from '../pages/tabela-notas/tabela-notas';
 
 @NgModule({
     declarations: [
@@ -39,7 +40,8 @@ import {RemoverAtividadesPage} from '../pages/remover-atividades/remover-ativida
         ControleAtividadePage,
         NotasPage,
         DarNotaPage,
-        RemoverAtividadesPage
+        RemoverAtividadesPage,
+        TabelaNotasPage
     ],
     imports: [
         IonicModule.forRoot(MyApp, {
@@ -64,7 +66,8 @@ import {RemoverAtividadesPage} from '../pages/remover-atividades/remover-ativida
         ControleAtividadePage,
         NotasPage,
         DarNotaPage,
-        RemoverAtividadesPage
+        RemoverAtividadesPage,
+        TabelaNotasPage
     ],
     providers: [
         {provide: ErrorHandler, useClass: IonicErrorHandler},

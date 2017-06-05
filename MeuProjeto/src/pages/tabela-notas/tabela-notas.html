@@ -1,0 +1,42 @@
+<!--
+  Generated template for the TabelaNotas page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Tabela de Notas</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-header>
+            Tabela de notas da turma: {{turma.nome}}
+        </ion-card-header>
+    </ion-card>
+    
+        <ion-grid>
+            <ion-row >
+                <ion-col col-12 offset-12>
+                    <b>Alunos/Notas</b>
+                </ion-col>
+                <ion-col col-12 offset-12 *ngFor="let n of nColunas">
+                    <b>Nota {{n}}</b>
+                </ion-col>
+                <ion-col col-12 offset-12>
+                    <b>Média</b>
+                </ion-col>
+            </ion-row >
+            <ion-row *ngFor="let aluno of turma.alunos">
+                <ion-col col-12 offset-12>{{aluno.nome}}</ion-col>
+                <ion-col col-12 offset-12 *ngFor="let nota of getNotas(aluno)">{{nota}}</ion-col>
+                <ion-col col-12 offset-12><b [color]="aluno.calcularMedia() < 7 ? 'danger' : 'secondary'">{{aluno.calcularMedia()}}</b></ion-col>
+            </ion-row>
+        </ion-grid>
+    
+</ion-content>
