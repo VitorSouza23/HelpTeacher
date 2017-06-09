@@ -22,6 +22,8 @@ import {DarNotaPage} from '../pages/dar-nota/dar-nota';
 import {Storage} from '@ionic/storage';
 import {RemoverAtividadesPage} from '../pages/remover-atividades/remover-atividades';
 import {TabelaNotasPage} from '../pages/tabela-notas/tabela-notas';
+import {GeradorHtml} from '../providers/gerador-html';
+import {EmailComposer} from '@ionic-native/email-composer';
 
 @NgModule({
     declarations: [
@@ -75,7 +77,9 @@ import {TabelaNotasPage} from '../pages/tabela-notas/tabela-notas';
         GerenciadorProfessor,
         BDService,
         GerenciadorAtividades,
-        Storage
+        Storage,
+        GeradorHtml,
+        EmailComposer
     ]
 })
 export class AppModule {}

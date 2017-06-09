@@ -38,5 +38,5 @@
                 <ion-col col-12 offset-12><b [color]="aluno.calcularMedia() < 7 ? 'danger' : 'secondary'">{{aluno.calcularMedia()}}</b></ion-col>
             </ion-row>
         </ion-grid>
-    
+    <button ion-button round full (click)="enviarPorEmail()">Mandar por Email</button>
 </ion-content>
