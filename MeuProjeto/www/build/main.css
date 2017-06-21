@@ -43107,6 +43107,12 @@ page-remover-alunos .ion-card-header-alunos {
   color: white;
 }
 
+page-remover-atividades .ion-card-header-atividades {
+  background-color: #f53d3d;
+  font-size: 18px;
+  color: white;
+}
+
 page-remover-turmas .ion-card-header-turmas {
   background-color: #0066ff;
   font-size: 18px;

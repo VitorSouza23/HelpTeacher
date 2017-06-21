@@ -2,7 +2,7 @@
 <widget id="com.ionicframework.meuprojeto872253" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>HelpTeacher</name>
     <description>Aplicativo desenvolvido através do framework Ionic (v2) para o auxílio dos professores em seus planos de aula</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <author email="vitordesolza@gmail.com" href="https://github.com/VitorSouza23">Vitor de Souza</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
