@@ -16,12 +16,12 @@
 // automatically applied to the <body> element in the app.
 
 .ios, .wp, .md{
-    ion-card{
+    ion-card {
         background-color: map-get($colors, ligth-red);
         border-radius: 10px;
     }
 
-    ion-card-header{
+    ion-card-header {
         background-color: map-get($colors, danger);
         font-size: 18px;
         color: white;
